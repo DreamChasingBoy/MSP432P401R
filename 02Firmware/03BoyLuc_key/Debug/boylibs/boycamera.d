@@ -2,7 +2,7 @@
 
 boylibs/boycamera.obj: ../boylibs/boycamera.c
 boylibs/boycamera.obj: ../boylibs/boycamera.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/headfile.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/headfile.h
 boylibs/boycamera.obj: D:/Software_installation/CCSIDE/ti/msp/MSP432Ware_3_40_00_25/driverlib/driverlib/MSP432P4xx/driverlib.h
 boylibs/boycamera.obj: D:/Software_installation/CCSIDE/ti/msp/MSP432Ware_3_40_00_25/driverlib/driverlib/MSP432P4xx/adc14.h
 boylibs/boycamera.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdint.h
@@ -60,48 +60,48 @@ boylibs/boycamera.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/comp
 boylibs/boycamera.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/math.h
 boylibs/boycamera.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/_defs.h
 boylibs/boycamera.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_limits.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinisr.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exingpio.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/dat.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinpwm.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinTimerA.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinTimerAINT.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinADC.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinmotor.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinencoder.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinsystem.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinuart.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinadjust.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinkey.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinsteer.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/Oscill_OLED.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/LMT70RD.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/headfile.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/ADS1292.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/ADS_RCV.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinHC_SR04.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinIIC.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinMPU6050.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exineeprom.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinADC0832.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinoled.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/headfile.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyGrayscale.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boykey.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyled.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boypid.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boymotor.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyencoder.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyultrasonic.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boycamera.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boybluetooth.h
-boylibs/boycamera.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boysteer.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinisr.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exingpio.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/dat.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinpwm.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinTimerA.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinTimerAINT.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinADC.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinmotor.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinencoder.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinsystem.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinuart.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinadjust.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinkey.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinsteer.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/Oscill_OLED.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/LMT70RD.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/headfile.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/ADS1292.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/ADS_RCV.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinHC_SR04.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinIIC.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinMPU6050.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exineeprom.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinADC0832.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinoled.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/headfile.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyGrayscale.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boykey.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyled.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boypid.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boymotor.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyencoder.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyultrasonic.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boycamera.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boybluetooth.h
+boylibs/boycamera.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h
 
 ../boylibs/boycamera.c:
 
 ../boylibs/boycamera.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/headfile.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/headfile.h:
 
 D:/Software_installation/CCSIDE/ti/msp/MSP432Ware_3_40_00_25/driverlib/driverlib/MSP432P4xx/driverlib.h:
 
@@ -217,75 +217,75 @@ D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.
 
 D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_limits.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinisr.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinisr.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exingpio.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exingpio.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/dat.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/dat.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinpwm.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinpwm.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinTimerA.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinTimerA.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinTimerAINT.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinTimerAINT.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinADC.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinADC.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinmotor.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinmotor.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinencoder.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinencoder.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinsystem.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinsystem.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinuart.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinuart.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinadjust.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinadjust.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinkey.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinkey.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinsteer.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinsteer.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/Oscill_OLED.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/Oscill_OLED.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/LMT70RD.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/LMT70RD.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/headfile.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/headfile.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/ADS1292.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/ADS1292.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/ADS_RCV.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/ADS_RCV.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinHC_SR04.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinHC_SR04.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinIIC.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinIIC.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinMPU6050.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinMPU6050.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exineeprom.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exineeprom.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinADC0832.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinADC0832.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinoled.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinoled.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/headfile.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/headfile.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyGrayscale.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyGrayscale.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boykey.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boykey.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyled.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyled.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boypid.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boypid.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boymotor.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boymotor.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyencoder.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyencoder.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyultrasonic.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyultrasonic.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boycamera.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boycamera.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boybluetooth.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boybluetooth.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boysteer.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h:
 

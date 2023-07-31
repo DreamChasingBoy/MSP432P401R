@@ -2,7 +2,7 @@
 
 main.obj: ../main.c
 main.obj: ../boylibs/headfile.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/headfile.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/headfile.h
 main.obj: D:/Software_installation/CCSIDE/ti/msp/MSP432Ware_3_40_00_25/driverlib/driverlib/MSP432P4xx/driverlib.h
 main.obj: D:/Software_installation/CCSIDE/ti/msp/MSP432Ware_3_40_00_25/driverlib/driverlib/MSP432P4xx/adc14.h
 main.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/stdint.h
@@ -60,32 +60,32 @@ main.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-a
 main.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/math.h
 main.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/_defs.h
 main.obj: D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_limits.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinisr.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exingpio.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/dat.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinpwm.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinTimerA.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinTimerAINT.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinADC.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinmotor.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinencoder.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinsystem.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinuart.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinadjust.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinkey.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinsteer.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/Oscill_OLED.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/LMT70RD.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/headfile.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/ADS1292.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/ADS_RCV.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinHC_SR04.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinIIC.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinMPU6050.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exineeprom.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinADC0832.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinoled.h
-main.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/headfile.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinisr.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exingpio.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/dat.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinpwm.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinTimerA.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinTimerAINT.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinADC.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinmotor.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinencoder.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinsystem.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinuart.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinadjust.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinkey.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinsteer.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/Oscill_OLED.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/LMT70RD.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/headfile.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/ADS1292.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/ADS_RCV.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinHC_SR04.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinIIC.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinMPU6050.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exineeprom.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinADC0832.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinoled.h
+main.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/headfile.h
 main.obj: ../boylibs/boyGrayscale.h
 main.obj: ../boylibs/boykey.h
 main.obj: ../boylibs/boyled.h
@@ -101,7 +101,7 @@ main.obj: ../boylibs/boysteer.h
 
 ../boylibs/headfile.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/headfile.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/headfile.h:
 
 D:/Software_installation/CCSIDE/ti/msp/MSP432Ware_3_40_00_25/driverlib/driverlib/MSP432P4xx/driverlib.h:
 
@@ -217,57 +217,57 @@ D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.
 
 D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include/machine/_limits.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinisr.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinisr.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exingpio.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exingpio.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/dat.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/dat.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinpwm.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinpwm.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinTimerA.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinTimerA.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinTimerAINT.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinTimerAINT.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinADC.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinADC.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinmotor.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinmotor.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinencoder.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinencoder.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinsystem.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinsystem.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinuart.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinuart.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinadjust.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinadjust.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinkey.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinkey.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinsteer.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinsteer.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/Oscill_OLED.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/Oscill_OLED.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/LMT70RD.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/LMT70RD.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/headfile.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/headfile.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/ADS1292.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/ADS1292.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/ADS_RCV.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/ADS_RCV.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinHC_SR04.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinHC_SR04.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinIIC.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinIIC.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinMPU6050.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinMPU6050.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exineeprom.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exineeprom.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinADC0832.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinADC0832.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/exinlibs/exinoled.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/exinlibs/exinoled.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/headfile.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/headfile.h:
 
 ../boylibs/boyGrayscale.h:
 

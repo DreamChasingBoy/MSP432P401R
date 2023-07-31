@@ -85,17 +85,17 @@ exinlibs/OV_RCV.obj: ../exinlibs/exinMPU6050.h
 exinlibs/OV_RCV.obj: ../exinlibs/exineeprom.h
 exinlibs/OV_RCV.obj: ../exinlibs/exinADC0832.h
 exinlibs/OV_RCV.obj: ../exinlibs/exinoled.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/headfile.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyGrayscale.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boykey.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyled.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boypid.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boymotor.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyencoder.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyultrasonic.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boycamera.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boybluetooth.h
-exinlibs/OV_RCV.obj: E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boysteer.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/headfile.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyGrayscale.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boykey.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyled.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boypid.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boymotor.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyencoder.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyultrasonic.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boycamera.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boybluetooth.h
+exinlibs/OV_RCV.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h
 
 ../exinlibs/OV_RCV.c:
 
@@ -267,25 +267,25 @@ D:/Software_installation/CCSIDE/ti/ccs1230/ccs/tools/compiler/ti-cgt-arm_20.2.7.
 
 ../exinlibs/exinoled.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/headfile.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/headfile.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyGrayscale.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyGrayscale.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boykey.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boykey.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyled.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyled.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boypid.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boypid.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boymotor.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boymotor.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyencoder.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyencoder.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boyultrasonic.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyultrasonic.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boycamera.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boycamera.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boybluetooth.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boybluetooth.h:
 
-E:/Software_workspace/CCS_IDE_work_space/03BoyLuc_key/boylibs/boysteer.h:
+E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h:
 
