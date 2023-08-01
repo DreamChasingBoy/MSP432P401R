@@ -97,7 +97,6 @@ exinlibs/exinsteer.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/bo
 exinlibs/exinsteer.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h
 exinlibs/exinsteer.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyiic.h
 exinlibs/exinsteer.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boympu6050.h
-exinlibs/exinsteer.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyimu.h
 
 ../exinlibs/exinsteer.c:
 
@@ -292,6 +291,4 @@ E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h:
 E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyiic.h:
 
 E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boympu6050.h:
-
-E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyimu.h:
 

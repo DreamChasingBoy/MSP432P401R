@@ -98,7 +98,6 @@ boylibs/boyled.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylib
 boylibs/boyled.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h
 boylibs/boyled.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyiic.h
 boylibs/boyled.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boympu6050.h
-boylibs/boyled.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyimu.h
 
 ../boylibs/boyled.c:
 
@@ -295,6 +294,4 @@ E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h:
 E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyiic.h:
 
 E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boympu6050.h:
-
-E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyimu.h:
 

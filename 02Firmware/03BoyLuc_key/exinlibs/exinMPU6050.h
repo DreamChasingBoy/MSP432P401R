@@ -53,4 +53,5 @@ extern uint8 MPU_Get_Gyro(short * gx,short * gy,short * gz);
 extern uint8 MPU_Get_Acc(short * ax,short * ay,short * az);
 extern short MPU_Get_Angel(short ax,short ay,short az,float * roll,float * pitch,float *yaw);
 extern float Low_filter(float K1,float angle_m, float gyro_m);
+
 #endif /* EXINLIBS_EXINMPU6050_H_ */

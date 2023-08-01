@@ -98,7 +98,6 @@ boylibs/boyGrayscale.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/
 boylibs/boyGrayscale.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h
 boylibs/boyGrayscale.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyiic.h
 boylibs/boyGrayscale.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boympu6050.h
-boylibs/boyGrayscale.obj: E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyimu.h
 
 ../boylibs/boyGrayscale.c:
 
@@ -295,6 +294,4 @@ E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boysteer.h:
 E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyiic.h:
 
 E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boympu6050.h:
-
-E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/boyimu.h:
 

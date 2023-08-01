@@ -43,6 +43,7 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.ti.ccstudio.buildDefinitions.MSP432_20.2.compilerID.INCLUDE_PATH.1398502789" name="Add dir to #include search path (--include_path, -I)" superClass="com.ti.ccstudio.buildDefinitions.MSP432_20.2.compilerID.INCLUDE_PATH" valueType="includePath">
 									<listOptionValue builtIn="false" value="${CCS_BASE_ROOT}/arm/include"/>
+									<listOptionValue builtIn="false" value="${workspace_loc:/${ProjName}/boylibs}"/>
 									<listOptionValue builtIn="false" value="D:\Software_installation\CCSIDE\ti\msp\MSP432Ware_3_40_00_25\driverlib\driverlib\MSP432P4xx"/>
 									<listOptionValue builtIn="false" value="${CCS_BASE_ROOT}/arm/include/CMSIS"/>
 									<listOptionValue builtIn="false" value="${PROJECT_ROOT}"/>

@@ -25,7 +25,7 @@ extern "C"
 #include "boysteer.h"
 #include "boyiic.h"
 #include "boympu6050.h"
-#include "boyimu.h"
+
 #ifdef __cplusplus
 }
 #endif

@@ -328,6 +328,16 @@ void TA3_0_IRQHandler(void) {
         left_real_speed+=pid_get_PID(&pidSpeed, left_target_speed, left_real_speed);
         right_real_speed+=pid_get_PID(&pidSpeed, right_target_speed, right_real_speed);
     }
+    if(initOK==1)
+    {
+        //获取MPU6050的原始数据
+        GetMPU6050Data();
+        //姿态更新——四元数
+        ATT_Update(&g_MPUManager,&g_Attitude, 0.1);
+        GetAngle(&g_Attitude);
+        sprintf(str, "%f\r\n",g_Attitude.yaw);
+        UART_send_string(UART0, str);
+    }
     boy_direction_and_speed_control((int)left_real_speed,(int)right_real_speed);
     boy_encoder_clear();
 }
