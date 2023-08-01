@@ -23,6 +23,9 @@ extern "C"
 #include "boycamera.h"
 #include "boybluetooth.h"
 #include "boysteer.h"
+#include "boyiic.h"
+#include "boympu6050.h"
+#include "boyimu.h"
 #ifdef __cplusplus
 }
 #endif

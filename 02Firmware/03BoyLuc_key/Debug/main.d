@@ -96,6 +96,9 @@ main.obj: ../boylibs/boyultrasonic.h
 main.obj: ../boylibs/boycamera.h
 main.obj: ../boylibs/boybluetooth.h
 main.obj: ../boylibs/boysteer.h
+main.obj: ../boylibs/boyiic.h
+main.obj: ../boylibs/boympu6050.h
+main.obj: ../boylibs/boyimu.h
 
 ../main.c:
 
@@ -288,4 +291,10 @@ E:/Git_for_nannan/MSP432P401R/02Firmware/03BoyLuc_key/boylibs/headfile.h:
 ../boylibs/boybluetooth.h:
 
 ../boylibs/boysteer.h:
+
+../boylibs/boyiic.h:
+
+../boylibs/boympu6050.h:
+
+../boylibs/boyimu.h:
 

@@ -12,8 +12,6 @@
 #ifndef _exinMPU6050_h_
 #define _exinMPU6050_h_
 
-#define PI 3.1415926
-
 typedef enum
 {
   POWER1=0,

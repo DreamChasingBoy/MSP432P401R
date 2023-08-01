@@ -10,9 +10,12 @@ C_SRCS += \
 ../boylibs/boybluetooth.c \
 ../boylibs/boycamera.c \
 ../boylibs/boyencoder.c \
+../boylibs/boyiic.c \
+../boylibs/boyimu.c \
 ../boylibs/boykey.c \
 ../boylibs/boyled.c \
 ../boylibs/boymotor.c \
+../boylibs/boympu6050.c \
 ../boylibs/boypid.c \
 ../boylibs/boysteer.c \
 ../boylibs/boyultrasonic.c 
@@ -22,9 +25,12 @@ C_DEPS += \
 ./boylibs/boybluetooth.d \
 ./boylibs/boycamera.d \
 ./boylibs/boyencoder.d \
+./boylibs/boyiic.d \
+./boylibs/boyimu.d \
 ./boylibs/boykey.d \
 ./boylibs/boyled.d \
 ./boylibs/boymotor.d \
+./boylibs/boympu6050.d \
 ./boylibs/boypid.d \
 ./boylibs/boysteer.d \
 ./boylibs/boyultrasonic.d 
@@ -34,9 +40,12 @@ OBJS += \
 ./boylibs/boybluetooth.obj \
 ./boylibs/boycamera.obj \
 ./boylibs/boyencoder.obj \
+./boylibs/boyiic.obj \
+./boylibs/boyimu.obj \
 ./boylibs/boykey.obj \
 ./boylibs/boyled.obj \
 ./boylibs/boymotor.obj \
+./boylibs/boympu6050.obj \
 ./boylibs/boypid.obj \
 ./boylibs/boysteer.obj \
 ./boylibs/boyultrasonic.obj 
@@ -46,9 +55,12 @@ OBJS__QUOTED += \
 "boylibs\boybluetooth.obj" \
 "boylibs\boycamera.obj" \
 "boylibs\boyencoder.obj" \
+"boylibs\boyiic.obj" \
+"boylibs\boyimu.obj" \
 "boylibs\boykey.obj" \
 "boylibs\boyled.obj" \
 "boylibs\boymotor.obj" \
+"boylibs\boympu6050.obj" \
 "boylibs\boypid.obj" \
 "boylibs\boysteer.obj" \
 "boylibs\boyultrasonic.obj" 
@@ -58,9 +70,12 @@ C_DEPS__QUOTED += \
 "boylibs\boybluetooth.d" \
 "boylibs\boycamera.d" \
 "boylibs\boyencoder.d" \
+"boylibs\boyiic.d" \
+"boylibs\boyimu.d" \
 "boylibs\boykey.d" \
 "boylibs\boyled.d" \
 "boylibs\boymotor.d" \
+"boylibs\boympu6050.d" \
 "boylibs\boypid.d" \
 "boylibs\boysteer.d" \
 "boylibs\boyultrasonic.d" 
@@ -70,9 +85,12 @@ C_SRCS__QUOTED += \
 "../boylibs/boybluetooth.c" \
 "../boylibs/boycamera.c" \
 "../boylibs/boyencoder.c" \
+"../boylibs/boyiic.c" \
+"../boylibs/boyimu.c" \
 "../boylibs/boykey.c" \
 "../boylibs/boyled.c" \
 "../boylibs/boymotor.c" \
+"../boylibs/boympu6050.c" \
 "../boylibs/boypid.c" \
 "../boylibs/boysteer.c" \
 "../boylibs/boyultrasonic.c" 

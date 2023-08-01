@@ -17,9 +17,12 @@ ORDERED_OBJS += \
 "./boylibs/boybluetooth.obj" \
 "./boylibs/boycamera.obj" \
 "./boylibs/boyencoder.obj" \
+"./boylibs/boyiic.obj" \
+"./boylibs/boyimu.obj" \
 "./boylibs/boykey.obj" \
 "./boylibs/boyled.obj" \
 "./boylibs/boymotor.obj" \
+"./boylibs/boympu6050.obj" \
 "./boylibs/boypid.obj" \
 "./boylibs/boysteer.obj" \
 "./boylibs/boyultrasonic.obj" \
@@ -184,8 +187,9 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" "boylibs\boyGrayscale.obj" "boylibs\boybluetooth.obj" "boylibs\boycamera.obj" "boylibs\boyencoder.obj" "boylibs\boykey.obj" "boylibs\boyled.obj" "boylibs\boymotor.obj" "boylibs\boypid.obj" "boylibs\boysteer.obj" "boylibs\boyultrasonic.obj" "exinlibs\ADS1292.obj" "exinlibs\ADS_RCV.obj" "exinlibs\LMT70RD.obj" "exinlibs\OV_RCV.obj" "exinlibs\Oscill_OLED.obj" "exinlibs\exinADC.obj" "exinlibs\exinADC0832.obj" "exinlibs\exinHC_SR04.obj" "exinlibs\exinIIC.obj" "exinlibs\exinMPU6050.obj" "exinlibs\exinTimerA.obj" "exinlibs\exinTimerAINT.obj" "exinlibs\exin_library_map_guide.obj" "exinlibs\exinadjust.obj" "exinlibs\exineeprom.obj" "exinlibs\exinencoder.obj" "exinlibs\exingpio.obj" "exinlibs\exinisr.obj" "exinlibs\exinkey.obj" "exinlibs\exinmotor.obj" "exinlibs\exinoled.obj" "exinlibs\exinpwm.obj" "exinlibs\exinsteer.obj" "exinlibs\exinsystem.obj" "exinlibs\exinuart.obj" "exinlibs\serial.obj" 
-	-$(RM) "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" "boylibs\boyGrayscale.d" "boylibs\boybluetooth.d" "boylibs\boycamera.d" "boylibs\boyencoder.d" "boylibs\boykey.d" "boylibs\boyled.d" "boylibs\boymotor.d" "boylibs\boypid.d" "boylibs\boysteer.d" "boylibs\boyultrasonic.d" "exinlibs\ADS1292.d" "exinlibs\ADS_RCV.d" "exinlibs\LMT70RD.d" "exinlibs\OV_RCV.d" "exinlibs\Oscill_OLED.d" "exinlibs\exinADC.d" "exinlibs\exinADC0832.d" "exinlibs\exinHC_SR04.d" "exinlibs\exinIIC.d" "exinlibs\exinMPU6050.d" "exinlibs\exinTimerA.d" "exinlibs\exinTimerAINT.d" "exinlibs\exin_library_map_guide.d" "exinlibs\exinadjust.d" "exinlibs\exineeprom.d" "exinlibs\exinencoder.d" "exinlibs\exingpio.d" "exinlibs\exinisr.d" "exinlibs\exinkey.d" "exinlibs\exinmotor.d" "exinlibs\exinoled.d" "exinlibs\exinpwm.d" "exinlibs\exinsteer.d" "exinlibs\exinsystem.d" "exinlibs\exinuart.d" "exinlibs\serial.d" 
+	-$(RM) "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" "boylibs\boyGrayscale.obj" "boylibs\boybluetooth.obj" "boylibs\boycamera.obj" "boylibs\boyencoder.obj" "boylibs\boyiic.obj" "boylibs\boyimu.obj" "boylibs\boykey.obj" "boylibs\boyled.obj" "boylibs\boymotor.obj" "boylibs\boympu6050.obj" "boylibs\boypid.obj" "boylibs\boysteer.obj" "boylibs\boyultrasonic.obj" "exinlibs\ADS1292.obj" "exinlibs\ADS_RCV.obj" "exinlibs\LMT70RD.obj" "exinlibs\OV_RCV.obj" "exinlibs\Oscill_OLED.obj" "exinlibs\exinADC.obj" "exinlibs\exinADC0832.obj" "exinlibs\exinHC_SR04.obj" "exinlibs\exinIIC.obj" "exinlibs\exinMPU6050.obj" "exinlibs\exinTimerA.obj" "exinlibs\exinTimerAINT.obj" "exinlibs\exin_library_map_guide.obj" "exinlibs\exinadjust.obj" "exinlibs\exineeprom.obj" "exinlibs\exinencoder.obj" "exinlibs\exingpio.obj" "exinlibs\exinisr.obj" "exinlibs\exinkey.obj" "exinlibs\exinmotor.obj" "exinlibs\exinoled.obj" "exinlibs\exinpwm.obj" "exinlibs\exinsteer.obj" "exinlibs\exinsystem.obj" "exinlibs\exinuart.obj" 
+	-$(RM) "exinlibs\serial.obj" 
+	-$(RM) "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" "boylibs\boyGrayscale.d" "boylibs\boybluetooth.d" "boylibs\boycamera.d" "boylibs\boyencoder.d" "boylibs\boyiic.d" "boylibs\boyimu.d" "boylibs\boykey.d" "boylibs\boyled.d" "boylibs\boymotor.d" "boylibs\boympu6050.d" "boylibs\boypid.d" "boylibs\boysteer.d" "boylibs\boyultrasonic.d" "exinlibs\ADS1292.d" "exinlibs\ADS_RCV.d" "exinlibs\LMT70RD.d" "exinlibs\OV_RCV.d" "exinlibs\Oscill_OLED.d" "exinlibs\exinADC.d" "exinlibs\exinADC0832.d" "exinlibs\exinHC_SR04.d" "exinlibs\exinIIC.d" "exinlibs\exinMPU6050.d" "exinlibs\exinTimerA.d" "exinlibs\exinTimerAINT.d" "exinlibs\exin_library_map_guide.d" "exinlibs\exinadjust.d" "exinlibs\exineeprom.d" "exinlibs\exinencoder.d" "exinlibs\exingpio.d" "exinlibs\exinisr.d" "exinlibs\exinkey.d" "exinlibs\exinmotor.d" "exinlibs\exinoled.d" "exinlibs\exinpwm.d" "exinlibs\exinsteer.d" "exinlibs\exinsystem.d" "exinlibs\exinuart.d" "exinlibs\serial.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
