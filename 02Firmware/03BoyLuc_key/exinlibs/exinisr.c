@@ -310,6 +310,7 @@ void TA2_0_IRQHandler(void) {
 
 }
 char str[50];
+long int i = 0;
 void TA3_0_IRQHandler(void) {
     TIMER_A3->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG;
     boy_speed_and_position_get();
@@ -330,11 +331,13 @@ void TA3_0_IRQHandler(void) {
     }
     if(initOK==1)
     {
+        i++;
         //获取MPU6050的原始数据
         GetMPU6050Data();
         //姿态更新——四元数
         ATT_Update(&g_MPUManager,&g_Attitude, 0.1);
         GetAngle(&g_Attitude);
+        g_Attitude.yaw=g_Attitude.yaw-0.0055326*i;
         sprintf(str, "%f\r\n",g_Attitude.yaw);
         UART_send_string(UART0, str);
     }
