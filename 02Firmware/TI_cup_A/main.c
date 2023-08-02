@@ -39,7 +39,7 @@ void main()
     boy_encoder_init();
     boy_led_or_beep_init(BOYLEDALL);
     boy_key_init(BOYKEYALL);
-    TimerA_CCR0INT_init(TIMERA_A3,100);
+    TimerA_CCR0INT_init(TIMERA_A3,10);
     initOK=1;
     while(1)
     {
