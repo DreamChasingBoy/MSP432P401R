@@ -43,6 +43,20 @@ void boy_steer_init(float angleA,float angleB)
     steer_pwm_init(steer_CHB,50,dutyB);
 }
 /*************************************************
+ * 函  数  名:boy_steer_init
+ * 功       能:初始化舵机
+ * 参       数:angleA:舵机A的角度
+ *            angleB:舵机B的角度
+ * 注 意 事 项:无
+ *************************************************/
+void boy_steer_init_duty(uint16_t dutyA,uint16_t dutyB)
+{
+    dutyA=dutyA>7500?7500:dutyA; dutyA=dutyA<1500?1500:dutyA;
+    dutyB=dutyB>7500?7500:dutyB; dutyB=dutyB<1500?1500:dutyB;
+    steer_pwm_init(steer_CHA,50,dutyA);
+    steer_pwm_init(steer_CHB,50,dutyB);
+}
+/*************************************************
  * 函  数  名:boy_steer_set
  * 功       能:设置舵机的角度
  * 参       数:angleA:舵机A的角度
@@ -53,6 +67,20 @@ void boy_steer_set(float angleA,float angleB)
 {
     int dutyA = boy_angle_to_duty(angleA);
     int dutyB = boy_angle_to_duty(angleB);
+    pwm_duty(pwm_CHE,dutyA);
+    pwm_duty(pwm_CHF,dutyB);
+}
+/*************************************************
+ * 函  数  名:boy_steer_set_duty
+ * 功       能:设置舵机的角度
+ * 参       数:angleA:舵机A的角度
+ *            angleB:舵机B的角度
+ * 注 意 事 项:无
+ *************************************************/
+void boy_steer_set_duty(uint16_t dutyA,uint16_t dutyB)
+{
+    dutyA=dutyA>7500?7500:dutyA; dutyA=dutyA<1500?1500:dutyA;
+    dutyB=dutyB>7500?7500:dutyB; dutyB=dutyB<1500?1500:dutyB;
     pwm_duty(pwm_CHE,dutyA);
     pwm_duty(pwm_CHF,dutyB);
 }

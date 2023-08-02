@@ -10,7 +10,7 @@
 #include "exinlibs\headfile.h"
 #define MAX(a,b) (a>b?a:b)
 #define MIN(a,b) (a<b?a:b)
-#define BOYULTRASONICBUFFSIZE 9
+#define BOYULTRASONICBUFFSIZE 5
 extern void boy_ultrasonic_init();
 extern float boy_ultrasonic_get_distance(int size);
 #endif /* BOYLIBS_BOYULTRASONIC_H_ */

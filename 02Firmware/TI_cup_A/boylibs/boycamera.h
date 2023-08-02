@@ -9,7 +9,7 @@
 #define BOYLIBS_BOYCAMERA_H_
 #include "exinlibs\headfile.h"
 
-#define BOYCAMERADATASIZE 4
+#define BOYCAMERADATASIZE 10
 extern uint8_t RxCamera[BOYCAMERADATASIZE];
 extern void boy_camera_receive_data(uint8_t com_data);
 

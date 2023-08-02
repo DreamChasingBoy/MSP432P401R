@@ -11,9 +11,9 @@
 #include "headfile.h"
 #include "exinisr.h"
 /*************私有变量定义*****************/
-float add_anglex,add_angley;
-float eeprom_anglex_middle,eeprom_angley_middle,eeprom_anglex_left_up,eeprom_angley_left_up,eeprom_anglex_right_up,eeprom_angley_right_up;
-float eeprom_anglex_left_down,eeprom_angley_left_down,eeprom_anglex_right_down,eeprom_angley_right_down;
+uint16_t add_positionx,add_positiony;
+uint16_t eeprom_positionx_middle,eeprom_positiony_middle,eeprom_positionx_left_up,eeprom_positiony_left_up,eeprom_positionx_right_up,eeprom_positiony_right_up;
+uint16_t eeprom_positionx_left_down,eeprom_positiony_left_down,eeprom_positionx_right_down,eeprom_positiony_right_down;
 uint8_t eeprom_flag=0;
 uint8_t init_lock;
 char str[100];
@@ -320,12 +320,10 @@ void TA3_0_IRQHandler(void) {
     TIMER_A3->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG;
     if(init_lock)
     {
-        if(eeprom_flag%2==0)
-        {
-            add_anglex=(float)encoder_B.encoder/78;
-            add_angley=(float)encoder_A.encoder/78;
-            boy_steer_set(90+add_angley+eeprom_angley_middle,90+add_anglex+eeprom_anglex_middle);
-        }
+//        if(eeprom_flag%2==0)
+//        {
+            boy_steer_set_duty(encoder_A.encoder/5+4500,encoder_B.encoder/5+4500);
+//        }
     }
 }
 
