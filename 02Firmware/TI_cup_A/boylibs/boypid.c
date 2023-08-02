@@ -6,7 +6,8 @@
  */
 
 #include "boypid.h"
-PID_Datatype pidSpeed,pidPosition,pidangle,pidsteer;
+float boy_p_foot=1;
+PID_Datatype pidSpeed,pidPosition,pidangle,pidsteerX,pidsteerY;
 uint8_t speed_pid_control=1;//速度环开关，1为开启，0为关闭
 uint8_t position_pid_control=1;//位置环开关，1为开启，0为关闭
 uint8_t angle_pid_control=0;//角度环开关，1为开启，0为关闭
@@ -86,14 +87,23 @@ void boy_anglepid_init()
  *************************************************/
 void boy_steerpid_init()
 {
-    pidsteer.kp=1.8;
-    pidsteer.ki=0.1;
-    pidsteer.kd=0;
-    pidsteer.door_integral=0.15;
-    pidsteer.max_integral=24;
-    pidsteer.min_integral=-24;
-    pidsteer.output_max=36;
-    pidsteer.output_min=-36;
+    pidsteerX.kp=
+    pidsteerY.kp=0.45;
+    pidsteerX.ki=
+    pidsteerY.ki=0.2;
+    pidsteerX.kd=
+    pidsteerY.kd=0.3;
+    pidsteerY.door_integral=1;
+    pidsteerY.max_integral=3;
+    pidsteerY.min_integral=-3;
+    pidsteerY.output_max=5*boy_p_foot;
+    pidsteerY.output_min=-5*boy_p_foot;
+
+    pidsteerX.door_integral=1;
+    pidsteerX.max_integral=3;
+    pidsteerX.min_integral=-3;
+    pidsteerX.output_max=5/boy_p_foot;
+    pidsteerX.output_min=-5/boy_p_foot;
 }
 /*************************************************
  * 函  数  名:pid_get_PID

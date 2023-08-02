@@ -3,8 +3,8 @@
 uint8_t xmiddle[5],ymiddle[5];
 void eeprom_clear()
 {
-    EEPROM_write_Byte(0,0,4500);
-    EEPROM_write_Byte(0,8,4500);
+    EEPROM_write_Byte(0,0,0);
+    EEPROM_write_Byte(0,8,0);
     EEPROM_write_Byte(0,16,0);
     EEPROM_write_Byte(0,24,0);
     EEPROM_write_Byte(0,32,0);
@@ -17,11 +17,14 @@ void eeprom_clear()
 void main()
 {
     char str[100];
+    boy_steerpid_init();
     system_init(0);
     set_DCO_48MH();
     EEPROM_init();
-    eeprom_positionx_middle=EEPROM_read_Byte(0,0);
-    eeprom_positiony_middle=EEPROM_read_Byte(0,8);
+    X_target_position=EEPROM_read_Byte(0,0);
+    Y_target_position=EEPROM_read_Byte(0,8);
+//    X_target_position=0x47;
+//    Y_target_position=0x48;
     eeprom_positionx_left_up=EEPROM_read_Byte(0,16);
     eeprom_positiony_left_up=EEPROM_read_Byte(0,24);
     eeprom_positionx_right_up=EEPROM_read_Byte(0,32);
@@ -40,7 +43,6 @@ void main()
     initOK=1;
     while(1)
     {
-
        if(init_lock)
            BOYLED1_ON();
        else
@@ -58,62 +60,36 @@ void main()
                   eeprom_flag++;
                   if(eeprom_flag==1)//中间
                   {
-                      eeprom_positionx_middle=add_positionx+eeprom_positionx_middle;
-                      eeprom_positiony_middle=add_positiony+eeprom_positiony_middle;
-                      EEPROM_write_Byte(0,0,eeprom_positionx_middle);
-                      EEPROM_write_Byte(0,8,eeprom_positiony_middle);
+                      EEPROM_write_Byte(0,0,RxCamera[0]);
+                      EEPROM_write_Byte(0,8,RxCamera[1]);
                   }
                   if(eeprom_flag==3)//左上
                   {
-                      eeprom_positionx_left_up=encoder_A.encoder/10+eeprom_positionx_middle;
-                      eeprom_positiony_left_up=encoder_B.encoder/10+eeprom_positiony_middle;
-                      EEPROM_write_Byte(0,16,eeprom_positionx_left_up);
-                      EEPROM_write_Byte(0,24,eeprom_positiony_left_up);
+                      EEPROM_write_Byte(0,16,RxCamera[0]);
+                      EEPROM_write_Byte(0,24,RxCamera[1]);
                   }
                   if(eeprom_flag==5)//左下
-                    {
-                        __disable_interrupt();
-                        eeprom_positionx_left_down=encoder_A.encoder/10+eeprom_positionx_middle;
-                        eeprom_positiony_left_down=encoder_B.encoder/10+eeprom_positiony_middle;
-                        boy_encoder_clear();
-                        EEPROM_write_Byte(0,32,eeprom_positionx_left_down);
-                        EEPROM_write_Byte(0,40,eeprom_positiony_left_down);
-                        __enable_interrupt();
-                    }
-//                  if(eeprom_flag==5)//左下
-//                  {
-//                      boy_encoder_clear();
-//                      eeprom_positionx_left_down=add_positionx+eeprom_positionx_middle;
-//                      eeprom_positiony_left_down=add_positiony+eeprom_positiony_middle;
-//                      EEPROM_write_Byte(0,48,eeprom_positionx_left_down);
-//                      EEPROM_write_Byte(0,56,eeprom_positiony_left_down);
-//                      boy_steer_set(90+eeprom_positiony_middle,90+eeprom_positionx_middle);//回到中间
-//                      add_positionx=add_positiony=0;
-//                  }
-//                  if(eeprom_flag==7)//右下
-//                  {
-//                      boy_encoder_clear();
-//                      eeprom_positionx_right_down=add_positionx+eeprom_positionx_middle;
-//                      eeprom_positiony_right_down=add_positiony+eeprom_positiony_middle;
-//                      EEPROM_write_Byte(0,64,eeprom_positionx_right_down);
-//                      EEPROM_write_Byte(0,72,eeprom_positiony_right_down);
-//                      boy_steer_set(90+eeprom_positiony_middle,90+eeprom_positionx_middle);//回到中间
-//                      add_positionx=add_positiony=0;
-//                  }
-//                  if(eeprom_flag==9)//右上
-//                  {
-//                      boy_encoder_clear();
-//                      eeprom_positionx_right_up=add_positionx+eeprom_positionx_middle;
-//                      eeprom_positiony_right_up=add_positiony+eeprom_positiony_middle;
-//                      EEPROM_write_Byte(0,64,eeprom_positionx_right_up);
-//                      EEPROM_write_Byte(0,72,eeprom_positiony_right_up);
-//                      add_positionx=add_positiony=0;
-//                  }
+                  {
+                      EEPROM_write_Byte(0,32,RxCamera[0]);
+                      EEPROM_write_Byte(0,40,RxCamera[1]);
+                  }
+                  if(eeprom_flag==5)//右下
+                  {
+                      EEPROM_write_Byte(0,48,RxCamera[0]);
+                      EEPROM_write_Byte(0,56,RxCamera[1]);
+                  }
+                  if(eeprom_flag==7)//左下
+                  {
+                      EEPROM_write_Byte(0,64,RxCamera[0]);
+                      EEPROM_write_Byte(0,72,RxCamera[1]);
+                  }
                   BOYLED0_Toggle();
                }
                else
                {
-//                   boy_steer_set_duty(eeprom_positiony_middle,eeprom_positionx_middle);//回到中间
+//                   sprintf(str,"xmid=%d,ymid=%d,xxuoshang=%d,yzuoshang=%d\r\n",eeprom_positionx_middle,eeprom_positiony_middle,eeprom_positionx_left_up,eeprom_positiony_left_up);
+//                   UART_send_string(UART0, str);
+
                }
 
            }
