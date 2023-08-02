@@ -83,13 +83,13 @@ void main()
                }
                else
                {
-
+                   boy_steer_set(90+eeprom_angley_middle,90+eeprom_anglex_middle);
                }
 
            }
            while(!boy_key_get(BOYKEY0));//等待松手
        }
-       else if(!boy_key_get(BOYKEY1))
+       else if(!boy_key_get(BOYKEY1))//当有按键1按下
        {
            delay_ms(10);
            if(!boy_key_get(BOYKEY1))
@@ -97,6 +97,23 @@ void main()
                init_lock=~init_lock;
            }
            while(!boy_key_get(BOYKEY1));
+       }
+       else if(!boy_key_get(BOYKEY2))//当有按键2按下
+       {
+           delay_ms(10);
+           if(!boy_key_get(BOYKEY2))
+           {
+               boy_steer_set(90+eeprom_angley_left_up,90+eeprom_anglex_left_up);//左上
+               delay_ms(500);
+               boy_steer_set(90+eeprom_angley_right_up,90+eeprom_anglex_right_up);//右上
+               delay_ms(500);
+               boy_steer_set(90+eeprom_angley_right_down,90+eeprom_anglex_right_down);//右下
+               delay_ms(500);
+               boy_steer_set(90+eeprom_angley_left_down,90+eeprom_anglex_left_down);//左下
+               delay_ms(500);
+               boy_steer_set(90+eeprom_angley_left_up,90+eeprom_anglex_left_up);//左上
+           }
+           while(!boy_key_get(BOYKEY2));
        }
     }
 }
