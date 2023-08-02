@@ -12,9 +12,10 @@
 #include "exinisr.h"
 /*************私有变量定义*****************/
 float add_anglex,add_angley;
-float eeprom_anglex_middle,eeprom_angley_middle;
+float eeprom_anglex_middle,eeprom_angley_middle,eeprom_anglex_left_up,eeprom_angley_left_up,eeprom_anglex_right_up,eeprom_angley_right_up;
+
 uint8_t eeprom_flag=0;
-char str[50];
+char str[100];
 /*******************************/
 extern char IRQ3_5flag;
 extern char IRQ4_6flag;
@@ -313,7 +314,6 @@ void TA2_0_IRQHandler(void) {
     /*添加程序*/
 
 }
-char str[50];
 long int i = 0;
 void TA3_0_IRQHandler(void) {
     TIMER_A3->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG;
@@ -321,8 +321,6 @@ void TA3_0_IRQHandler(void) {
     {
         add_anglex=(float)encoder_B.encoder/78;
         add_angley=(float)encoder_A.encoder/78;
-        sprintf(str,"a=%d,b=%d\n",encoder_A.encoder,encoder_B.encoder);
-        UART_send_string(UART0,str);
         boy_steer_set(90+add_angley+eeprom_angley_middle,90+add_anglex+eeprom_anglex_middle);
     }
 }
