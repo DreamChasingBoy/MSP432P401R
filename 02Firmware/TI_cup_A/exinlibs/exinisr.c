@@ -334,8 +334,9 @@ void TA3_0_IRQHandler(void) {
         {
             if(steer_pid_control_x)
             {
-                if(abs(X_target_position-X_real_position)<=1)
+                if(abs(X_target_position-X_real_position)<=2)
                 {
+                    boy_kill_integral_and_lasterror(&pidsteerX);
                     X_flag_arrive=1;
                 }
                 else
@@ -345,13 +346,14 @@ void TA3_0_IRQHandler(void) {
             }
             if(steer_pid_control_y)
             {
-                if(abs(Y_target_position-Y_real_position)<=1)
+                if(abs(Y_target_position-Y_real_position)<=2)
                 {
+                    boy_kill_integral_and_lasterror(&pidsteerY);
                     Y_flag_arrive=1;
                 }
                 else
                 {
-                    Y_real_duty+=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
+                    Y_real_duty-=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
                 }
             }
 

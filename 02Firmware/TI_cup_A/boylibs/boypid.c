@@ -92,20 +92,24 @@ void boy_steerpid_init()
     pidsteerX.kp=
     pidsteerY.kp=0.15;
     pidsteerX.ki=
-    pidsteerY.ki=0.25;
+    pidsteerY.ki=0.26;
     pidsteerX.kd=
-    pidsteerY.kd=0.2;
+    pidsteerY.kd=0.1;
     pidsteerY.door_integral=1;
     pidsteerY.max_integral=3;
     pidsteerY.min_integral=-3;
-    pidsteerY.output_max=3*boy_p_foot;
-    pidsteerY.output_min=-3*boy_p_foot;
+    pidsteerY.output_max=3/boy_p_foot+0.5;
+    pidsteerY.output_min=-3/boy_p_foot-0.5;
+//    pidsteerY.output_max=1;
+//        pidsteerY.output_min=1;
 
     pidsteerX.door_integral=1;
     pidsteerX.max_integral=3;
     pidsteerX.min_integral=-3;
-    pidsteerX.output_max=3/boy_p_foot;
-    pidsteerX.output_min=-3/boy_p_foot;
+    pidsteerX.output_max=3*boy_p_foot+0.5;
+    pidsteerX.output_min=-3*boy_p_foot-0.5;
+//    pidsteerX.output_max=1;
+//    pidsteerX.output_min=-1;
 }
 /*************************************************
  * º¯  Êý  Ãû:pid_get_PID
