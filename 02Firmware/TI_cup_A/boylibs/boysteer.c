@@ -12,9 +12,9 @@
  * 返   回   值:占空比量 & 角度量
  * 注 意 事 项:无
  *************************************************/
-uint8_t X_target_position,Y_target_position;
-uint8_t X_real_position,Y_real_position,X_last_position,Y_last_position;
-uint16_t X_real_duty,Y_real_duty,X_last_duty,Y_last_duty;
+uint16_t X_target_position,Y_target_position;
+uint16_t X_real_position,Y_real_position,X_last_position,Y_last_position;
+int X_real_duty,Y_real_duty,X_last_duty,Y_last_duty;
 uint8_t X_flag_arrive,Y_flag_arrive;
 int boy_angle_to_duty(float angle)
 {

@@ -88,12 +88,12 @@ void boy_anglepid_init()
 void boy_steerpid_init()
 {
     pidsteerX.kp=
-    pidsteerY.kp=0.25;
+    pidsteerY.kp=0.15;
     pidsteerX.ki=
-    pidsteerY.ki=0.2;
+    pidsteerY.ki=0.25;
     pidsteerX.kd=
-    pidsteerY.kd=0.4;
-    pidsteerY.door_integral=0.15;
+    pidsteerY.kd=0.2;
+    pidsteerY.door_integral=1;
     pidsteerY.max_integral=3;
     pidsteerY.min_integral=-3;
     pidsteerY.output_max=4*boy_p_foot;

@@ -18,6 +18,7 @@ void eeprom_clear()
 void main()
 {
     char str[100];
+    char str_oled_x[50];
     char str_oled[100];
     boy_steerpid_init();
     system_init(0);
@@ -25,18 +26,18 @@ void main()
     OLED_init();
     OLED_clr();
     EEPROM_init();
-    X_target_position=EEPROM_read_Byte(0,0);
-    Y_target_position=EEPROM_read_Byte(0,8);
+    eeprom_positionx_middle=X_target_position=EEPROM_read_Byte(0,0);
+    eeprom_positiony_middle=Y_target_position=EEPROM_read_Byte(0,8);
 //    X_target_position=0x47;
 //    Y_target_position=0x48;
     eeprom_positionx_left_up=EEPROM_read_Byte(0,16);
     eeprom_positiony_left_up=EEPROM_read_Byte(0,24);
-    eeprom_positionx_right_up=EEPROM_read_Byte(0,32);
-    eeprom_positiony_right_up=EEPROM_read_Byte(0,40);
-    eeprom_positionx_left_down=EEPROM_read_Byte(0,48);
-    eeprom_positiony_left_down=EEPROM_read_Byte(0,56);
-    eeprom_positionx_right_down=EEPROM_read_Byte(0,64);
-    eeprom_positiony_right_down=EEPROM_read_Byte(0,72);
+    eeprom_positionx_left_down=EEPROM_read_Byte(0,32);
+    eeprom_positiony_left_down=EEPROM_read_Byte(0,40);
+    eeprom_positionx_right_down=EEPROM_read_Byte(0,48);
+    eeprom_positiony_right_down=EEPROM_read_Byte(0,56);
+    eeprom_positionx_right_up=EEPROM_read_Byte(0,64);
+    eeprom_positiony_right_up=EEPROM_read_Byte(0,72);
     boy_steer_init_duty(4500,4500);
     UART_init(UART0,115200);
     UART_init(UART2,115200);
@@ -106,23 +107,8 @@ void main()
                }
                else
                {
-                   sprintf(str,"xmid=%d,ymid=%d,xxuoshang=%d,yzuoshang=%d\r\n",eeprom_positionx_right_up,eeprom_positiony_right_up,eeprom_positionx_left_up,eeprom_positiony_left_up);
-                   UART_send_string(UART0, str);
-                   if(kernel_task==0)
-                   {
-                       if(go_direct(eeprom_positionx_left_up,eeprom_positiony_left_up))
-                       {
-                           kernel_task=1;
-                       }
-                   }
-                   else if(kernel_task==1)
-                   {
-                       if(go_direct(eeprom_positionx_left_down,eeprom_positiony_left_down))
-                       {
-                           kernel_task=2;
-                       }
-                   }
-
+                   X_target_position=eeprom_positionx_middle;
+                   Y_target_position=eeprom_positiony_middle;
                }
 
            }
@@ -142,14 +128,18 @@ void main()
            delay_ms(10);
            if(!boy_key_get(BOYKEY2))
            {
+               X_target_position=eeprom_positionx_left_up;
+               Y_target_position=eeprom_positiony_left_up;
            }
            while(!boy_key_get(BOYKEY2));
        }
-       else if(!boy_key_get(BOYKEY3))//当有按键2按下
+       else if(!boy_key_get(BOYKEY3))//当有按键3按下
       {
           delay_ms(10);
           if(!boy_key_get(BOYKEY3))
           {
+              X_target_position=eeprom_positionx_left_down;
+              Y_target_position=eeprom_positiony_left_down;
           }
           while(!boy_key_get(BOYKEY3));
       }

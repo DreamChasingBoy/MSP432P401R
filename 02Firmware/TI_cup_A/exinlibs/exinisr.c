@@ -318,21 +318,23 @@ void TA2_0_IRQHandler(void) {
 long int i = 0;
 void TA3_0_IRQHandler(void) {
     TIMER_A3->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG;
+    char str_oled[50];
     if(init_lock)
     {
         if(eeprom_flag%2==0)
         {
+//            OLED_clr();
+//            sprintf(str_oled,"x=%d,y=%d",RxCamera[0],RxCamera[1]);
+//            OLED_Show_String(0,1,str_oled,8);
             boy_steer_set_duty(encoder_A.encoder/5+4500,encoder_B.encoder/5+4500);
         }
     }
     else
     {
-
         X_real_position=RxCamera[0];
         Y_real_position=RxCamera[1];//²â
         if(steer_pid_control)
         {
-//            boy_p_foot=abs(X_target_position-X_real_position)/abs(Y_target_position-Y_real_position);
             if(abs(X_target_position-X_real_position)<=1)
             {
                 X_flag_arrive=1;
@@ -350,7 +352,6 @@ void TA3_0_IRQHandler(void) {
                 Y_real_duty+=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
             }
         }
-
         boy_steer_set_duty(4500+Y_real_duty,4500+X_real_duty);//¿Ø
     }
 }
