@@ -1,6 +1,7 @@
 
 #include "boylibs\headfile.h"
 uint8_t xmiddle[5],ymiddle[5];
+uint8_t kernel_task=0;
 void eeprom_clear()
 {
     EEPROM_write_Byte(0,0,0);
@@ -17,9 +18,12 @@ void eeprom_clear()
 void main()
 {
     char str[100];
+    char str_oled[100];
     boy_steerpid_init();
     system_init(0);
     set_DCO_48MH();
+    OLED_init();
+    OLED_clr();
     EEPROM_init();
     X_target_position=EEPROM_read_Byte(0,0);
     Y_target_position=EEPROM_read_Byte(0,8);
@@ -47,9 +51,9 @@ void main()
            BOYLED1_ON();
        else
            BOYLED1_OFF();
-       UART_send_Byte(UART0,RxCamera[0]);
-       UART_send_Byte(UART0,RxCamera[1]);
-       delay_ms(100);
+//       UART_send_Byte(UART0,RxCamera[0]);
+//       UART_send_Byte(UART0,RxCamera[1]);
+//       delay_ms(100);
        if(!boy_key_get(BOYKEY0))//当有按键0按下
        {
            delay_ms(10);//延时消抖
@@ -60,35 +64,64 @@ void main()
                   eeprom_flag++;
                   if(eeprom_flag==1)//中间
                   {
+                      OLED_clr();
                       EEPROM_write_Byte(0,0,RxCamera[0]);
                       EEPROM_write_Byte(0,8,RxCamera[1]);
+                      sprintf(str_oled,"xmid=%d,ymid=%d",RxCamera[0],RxCamera[1]);
+                      OLED_Show_String(0,0,str_oled,8);
                   }
                   if(eeprom_flag==3)//左上
                   {
+                      OLED_clr();
                       EEPROM_write_Byte(0,16,RxCamera[0]);
                       EEPROM_write_Byte(0,24,RxCamera[1]);
+                      sprintf(str_oled,"xupl=%d,yupl=%d",RxCamera[0],RxCamera[1]);
+                      OLED_Show_String(0,0,str_oled,8);
                   }
                   if(eeprom_flag==5)//左下
                   {
+                      OLED_clr();
                       EEPROM_write_Byte(0,32,RxCamera[0]);
                       EEPROM_write_Byte(0,40,RxCamera[1]);
+                      sprintf(str_oled,"xdnl=%d,ydnl=%d",RxCamera[0],RxCamera[1]);
+                      OLED_Show_String(0,0,str_oled,8);
                   }
                   if(eeprom_flag==5)//右下
                   {
+                      OLED_clr();
                       EEPROM_write_Byte(0,48,RxCamera[0]);
                       EEPROM_write_Byte(0,56,RxCamera[1]);
+                      sprintf(str_oled,"xdnr=%d,ydnr=%d",RxCamera[0],RxCamera[1]);
+                      OLED_Show_String(0,0,str_oled,8);
                   }
-                  if(eeprom_flag==7)//左下
+                  if(eeprom_flag==7)//右上
                   {
+                      OLED_clr();
                       EEPROM_write_Byte(0,64,RxCamera[0]);
                       EEPROM_write_Byte(0,72,RxCamera[1]);
+                      sprintf(str_oled,"xupr=%d,yupr=%d",RxCamera[0],RxCamera[1]);
+                      OLED_Show_String(0,0,str_oled,8);
                   }
                   BOYLED0_Toggle();
                }
                else
                {
-//                   sprintf(str,"xmid=%d,ymid=%d,xxuoshang=%d,yzuoshang=%d\r\n",eeprom_positionx_middle,eeprom_positiony_middle,eeprom_positionx_left_up,eeprom_positiony_left_up);
-//                   UART_send_string(UART0, str);
+                   sprintf(str,"xmid=%d,ymid=%d,xxuoshang=%d,yzuoshang=%d\r\n",eeprom_positionx_right_up,eeprom_positiony_right_up,eeprom_positionx_left_up,eeprom_positiony_left_up);
+                   UART_send_string(UART0, str);
+                   if(kernel_task==0)
+                   {
+                       if(go_direct(eeprom_positionx_left_up,eeprom_positiony_left_up))
+                       {
+                           kernel_task=1;
+                       }
+                   }
+                   else if(kernel_task==1)
+                   {
+                       if(go_direct(eeprom_positionx_left_down,eeprom_positiony_left_down))
+                       {
+                           kernel_task=2;
+                       }
+                   }
 
                }
 

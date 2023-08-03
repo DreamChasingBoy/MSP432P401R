@@ -339,8 +339,6 @@ void TA3_0_IRQHandler(void) {
             }
             else
             {
-//                pidsteerX.output_max=5/boy_p_foot;
-//                pidsteerX.output_min=-5/boy_p_foot;
                 X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
             }
             if(abs(Y_target_position-Y_real_position)<=1)
@@ -349,9 +347,7 @@ void TA3_0_IRQHandler(void) {
             }
             else
             {
-//                pidsteerY.output_max=5*boy_p_foot;
-//                pidsteerY.output_min=-5*boy_p_foot;
-                Y_real_duty-=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
+                Y_real_duty+=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
             }
         }
 

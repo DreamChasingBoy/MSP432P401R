@@ -73,6 +73,7 @@ typedef enum{
     TIMERA_TAN
 }TIMERA_NVIC_enum;//定时器A子级中断枚举
 void TimerA_CLK_set(TIMERA_enum TIMER,TIMERA_CLK_enum TIMERA_CLK,TIMERA_DIV_enum TIMERA_IDDIV,TIMERA_DIV_enum TIMERA_IDEXDIV);
+extern void TimerA_disable_CCRnIRQ(TIMERA_enum TIMER,TIMERA_CCR_enum TIMERA_CCR);
 extern void TimerA_enable_CCRnIRQ(TIMERA_enum TIMER,TIMERA_CCR_enum TIMERA_CCR);
 extern void TimerA_NVIC_IRQ_set(TIMERA_enum TIMER,TIMERA_NVIC_enum TIMERA_NVIC);
 extern void TimerA_MOD_sel(TIMERA_enum TIMER,TIMERA_MOD_enum TIMERA_MODE);

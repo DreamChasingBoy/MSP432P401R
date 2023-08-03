@@ -13,7 +13,7 @@
  * 注 意 事 项:无
  *************************************************/
 uint8_t X_target_position,Y_target_position;
-uint8_t X_real_position,Y_real_position;
+uint8_t X_real_position,Y_real_position,X_last_position,Y_last_position;
 uint16_t X_real_duty,Y_real_duty,X_last_duty,Y_last_duty;
 uint8_t X_flag_arrive,Y_flag_arrive;
 int boy_angle_to_duty(float angle)
@@ -85,4 +85,19 @@ void boy_steer_set_duty(uint16_t dutyA,uint16_t dutyB)
     dutyB=dutyB>7500?7500:dutyB; dutyB=dutyB<1500?1500:dutyB;
     pwm_duty(pwm_CHE,dutyA);
     pwm_duty(pwm_CHF,dutyB);
+}
+/********************/
+uint8_t go_direct(uint16_t xpos,uint16_t ypos)
+{
+    uint8_t task_over=0;
+    X_target_position=xpos;
+    Y_target_position=ypos;
+    if(X_flag_arrive==1&&Y_flag_arrive==1)
+    {
+        TimerA_disable_CCRnIRQ(TIMERA_A3,TIMERA_CCR0);
+        X_flag_arrive=Y_flag_arrive=0;
+        task_over=1;
+        TimerA_enable_CCRnIRQ(TIMERA_A3,TIMERA_CCR0);
+    }
+    return task_over;
 }
