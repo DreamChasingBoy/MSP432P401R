@@ -26,10 +26,10 @@ void main()
     OLED_init();
     OLED_clr();
     EEPROM_init();
-    eeprom_positionx_middle=X_target_position=EEPROM_read_Byte(0,0);
-    eeprom_positiony_middle=Y_target_position=EEPROM_read_Byte(0,8);
-//    X_target_position=0x47;
-//    Y_target_position=0x48;
+    X_last_position=X_target_position=eeprom_positionx_middle=EEPROM_read_Byte(0,0);
+    Y_last_position=Y_target_position=eeprom_positiony_middle=EEPROM_read_Byte(0,8);
+    X_target_position=118;
+    Y_target_position=10;
     eeprom_positionx_left_up=EEPROM_read_Byte(0,16);
     eeprom_positiony_left_up=EEPROM_read_Byte(0,24);
     eeprom_positionx_left_down=EEPROM_read_Byte(0,32);
@@ -41,6 +41,10 @@ void main()
     boy_steer_init_duty(4500,4500);
     UART_init(UART0,115200);
     UART_init(UART2,115200);
+    sprintf(str,"youshangx=%d,youshangy=%d\r\n",eeprom_positionx_right_up,eeprom_positiony_right_up);
+    UART_send_string(UART0,str);
+    sprintf(str,"youxiax=%d,youxiay=%d\r\n",eeprom_positionx_right_down,eeprom_positiony_right_down);
+    UART_send_string(UART0,str);
     boy_encoder_init();
     boy_led_or_beep_init(BOYLEDALL);
     boy_key_init(BOYKEYALL);
@@ -52,9 +56,17 @@ void main()
            BOYLED1_ON();
        else
            BOYLED1_OFF();
-       UART_send_Byte(UART0,RxCamera[0]);
-       UART_send_Byte(UART0,RxCamera[1]);
-       delay_ms(100);
+//       delay_ms(100);
+       if(if_control_start==1)
+        switch(task_state)
+        {
+        case 0: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
+        case 1: task_state=go_where(eeprom_positionx_right_up,eeprom_positiony_right_up,task_state); break;
+        case 2: task_state=go_where(eeprom_positionx_right_down,eeprom_positiony_right_down,task_state); break;
+        case 3: task_state=go_where(eeprom_positionx_left_down,eeprom_positiony_left_down,task_state); break;
+        case 4: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
+        default: break;
+        }
        if(!boy_key_get(BOYKEY0))//当有按键0按下
        {
            delay_ms(10);//延时消抖
@@ -107,10 +119,11 @@ void main()
                }
                else
                {
+                   if_control_start=0;
+                   steer_pid_control_x=steer_pid_control_y=1;
                    X_target_position=eeprom_positionx_middle;
                    Y_target_position=eeprom_positiony_middle;
                }
-
            }
            while(!boy_key_get(BOYKEY0));//等待松手
        }
@@ -128,18 +141,24 @@ void main()
            delay_ms(10);
            if(!boy_key_get(BOYKEY2))
            {
-               X_target_position=eeprom_positionx_left_up;
-               Y_target_position=eeprom_positiony_left_up;
+               TimerA_disable_CCRnIRQ(TIMERA_A3,TIMERA_CCR0);
+               X_flag_arrive=0;
+               Y_flag_arrive=0;
+               if_control_start=1;
+               TimerA_enable_CCRnIRQ(TIMERA_A3,TIMERA_CCR0);
            }
            while(!boy_key_get(BOYKEY2));
        }
-       else if(!boy_key_get(BOYKEY3))//当有按键3按下
+       else if(!boy_key_get(BOYKEY3))//当有按键3按下,暂停
       {
           delay_ms(10);
           if(!boy_key_get(BOYKEY3))
           {
-              X_target_position=eeprom_positionx_left_down;
-              Y_target_position=eeprom_positiony_left_down;
+              if(steer_pid_control==0) steer_pid_control=1;
+              else steer_pid_control=0;
+//              boy_kill_integral_and_lasterror(&pidsteerX);boy_kill_integral_and_lasterror(&pidsteerY);
+//              X_target_position=118;
+//              Y_target_position=96;
           }
           while(!boy_key_get(BOYKEY3));
       }

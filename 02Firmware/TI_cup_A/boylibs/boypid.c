@@ -12,6 +12,8 @@ uint8_t speed_pid_control=1;//速度环开关，1为开启，0为关闭
 uint8_t position_pid_control=1;//位置环开关，1为开启，0为关闭
 uint8_t angle_pid_control=0;//角度环开关，1为开启，0为关闭
 uint8_t steer_pid_control=1;//舵机角度环
+uint8_t steer_pid_control_x=1;
+uint8_t steer_pid_control_y=1;
 /*************************************************
  * 函  数  名:boy_speedpid_init
  * 功      能:初始化速度环pid结构体
@@ -96,14 +98,14 @@ void boy_steerpid_init()
     pidsteerY.door_integral=1;
     pidsteerY.max_integral=3;
     pidsteerY.min_integral=-3;
-    pidsteerY.output_max=4*boy_p_foot;
-    pidsteerY.output_min=-4*boy_p_foot;
+    pidsteerY.output_max=3*boy_p_foot;
+    pidsteerY.output_min=-3*boy_p_foot;
 
     pidsteerX.door_integral=1;
     pidsteerX.max_integral=3;
     pidsteerX.min_integral=-3;
-    pidsteerX.output_max=4/boy_p_foot;
-    pidsteerX.output_min=-4/boy_p_foot;
+    pidsteerX.output_max=3/boy_p_foot;
+    pidsteerX.output_min=-3/boy_p_foot;
 }
 /*************************************************
  * 函  数  名:pid_get_PID
@@ -154,4 +156,10 @@ float pid_get_PID(PID_Datatype* pid, float target, float real)
     pid->last_error = error; // 记录这次误差供下次差分使用
 
     return PID;
+}
+
+void boy_kill_integral_and_lasterror(PID_Datatype* pid)
+{
+    pid->integral=0;
+    pid->last_error=0;
 }

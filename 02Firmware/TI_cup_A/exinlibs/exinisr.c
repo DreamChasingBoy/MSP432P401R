@@ -323,9 +323,6 @@ void TA3_0_IRQHandler(void) {
     {
         if(eeprom_flag%2==0)
         {
-//            OLED_clr();
-//            sprintf(str_oled,"x=%d,y=%d",RxCamera[0],RxCamera[1]);
-//            OLED_Show_String(0,1,str_oled,8);
             boy_steer_set_duty(encoder_A.encoder/5+4500,encoder_B.encoder/5+4500);
         }
     }
@@ -333,24 +330,31 @@ void TA3_0_IRQHandler(void) {
     {
         X_real_position=RxCamera[0];
         Y_real_position=RxCamera[1];//²â
-        if(steer_pid_control)
+        if(steer_pid_control!=0)
         {
-            if(abs(X_target_position-X_real_position)<=1)
+            if(steer_pid_control_x)
             {
-                X_flag_arrive=1;
+                if(abs(X_target_position-X_real_position)<=1)
+                {
+                    X_flag_arrive=1;
+                }
+                else
+                {
+                    X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
+                }
             }
-            else
+            if(steer_pid_control_y)
             {
-                X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
+                if(abs(Y_target_position-Y_real_position)<=1)
+                {
+                    Y_flag_arrive=1;
+                }
+                else
+                {
+                    Y_real_duty+=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
+                }
             }
-            if(abs(Y_target_position-Y_real_position)<=1)
-            {
-                Y_flag_arrive=1;
-            }
-            else
-            {
-                Y_real_duty+=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
-            }
+
         }
         boy_steer_set_duty(4500+Y_real_duty,4500+X_real_duty);//¿Ø
     }

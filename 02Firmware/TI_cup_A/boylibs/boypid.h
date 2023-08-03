@@ -28,8 +28,11 @@ extern uint8_t speed_pid_control;
 extern uint8_t position_pid_control;
 extern uint8_t angle_pid_control;
 extern uint8_t steer_pid_control;//¶æ»ú½Ç¶È»·
+extern uint8_t steer_pid_control_x;
+extern uint8_t steer_pid_control_y;
 extern float boy_p_foot;
 extern float pid_get_PID(PID_Datatype* pid, float target, float real);
+extern void boy_kill_integral_and_lasterror(PID_Datatype* pid);
 extern void boy_speedpid_init();
 extern void boy_positionpid_init();
 extern void boy_anglepid_init();

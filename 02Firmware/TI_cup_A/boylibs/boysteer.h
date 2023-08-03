@@ -16,5 +16,4 @@ extern void boy_steer_init(float angleA,float angleB);
 extern void boy_steer_set(float angleA,float angleB);
 extern void boy_steer_set_duty(uint16_t dutyA,uint16_t dutyB);
 extern void boy_steer_init_duty(uint16_t dutyA,uint16_t dutyB);
-extern uint8_t go_direct(uint16_t xpos,uint16_t ypos);
 #endif /* BOYLIBS_BOYSTEER_H_ */
