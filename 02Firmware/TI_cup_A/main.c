@@ -51,9 +51,9 @@ void main()
            BOYLED1_ON();
        else
            BOYLED1_OFF();
-//       UART_send_Byte(UART0,RxCamera[0]);
-//       UART_send_Byte(UART0,RxCamera[1]);
-//       delay_ms(100);
+       UART_send_Byte(UART0,RxCamera[0]);
+       UART_send_Byte(UART0,RxCamera[1]);
+       delay_ms(100);
        if(!boy_key_get(BOYKEY0))//当有按键0按下
        {
            delay_ms(10);//延时消抖
@@ -86,7 +86,7 @@ void main()
                       sprintf(str_oled,"xdnl=%d,ydnl=%d",RxCamera[0],RxCamera[1]);
                       OLED_Show_String(0,0,str_oled,8);
                   }
-                  if(eeprom_flag==5)//右下
+                  if(eeprom_flag==7)//右下
                   {
                       OLED_clr();
                       EEPROM_write_Byte(0,48,RxCamera[0]);
@@ -94,7 +94,7 @@ void main()
                       sprintf(str_oled,"xdnr=%d,ydnr=%d",RxCamera[0],RxCamera[1]);
                       OLED_Show_String(0,0,str_oled,8);
                   }
-                  if(eeprom_flag==7)//右上
+                  if(eeprom_flag==9)//右上
                   {
                       OLED_clr();
                       EEPROM_write_Byte(0,64,RxCamera[0]);
