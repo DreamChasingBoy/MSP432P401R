@@ -341,6 +341,8 @@ void TA3_0_IRQHandler(void) {
                 }
                 else
                 {
+                    boy_p_foot=sqrt(((float)(abs)(X_last_position-X_target_position))/((float)(abs)(Y_last_position-Y_target_position)));
+                    boy_steerpid_init();
                     X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
                 }
             }
@@ -348,11 +350,14 @@ void TA3_0_IRQHandler(void) {
             {
                 if(abs(Y_target_position-Y_real_position)<=1)
                 {
+
                     boy_kill_integral_and_lasterror(&pidsteerY);
                     Y_flag_arrive=1;
                 }
                 else
                 {
+                    boy_p_foot=sqrt(((float)(abs)(X_last_position-X_target_position))/((float)(abs)(Y_last_position-Y_target_position)));
+                    boy_steerpid_init();
                     Y_real_duty-=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
                 }
             }

@@ -50,7 +50,7 @@ void main()
     boy_encoder_init();
     boy_led_or_beep_init(BOYLEDALL);
     boy_key_init(BOYKEYALL);
-    TimerA_CCR0INT_init(TIMERA_A3,20);
+    TimerA_CCR0INT_init(TIMERA_A3,15);
     initOK=1;
     while(1)
     {
@@ -62,21 +62,21 @@ void main()
        if(if_control_start==1)
        {
            X_flag_arrive=Y_flag_arrive=0;
-           if_black();
-           if(black_ground==0)
-           {
-              switch(task_state)
-              {
-              case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-              case 1: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
-              case 2: task_state=go_where(RxCamera[6],RxCamera[7],task_state); break;
-              case 3: task_state=go_where(RxCamera[8],RxCamera[9],task_state); break;
-              case 4: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-              default: break;
-              }
-           }
-           else if(black_ground==1)
-           {
+//           if_black();
+//           if(black_ground==1)
+//           {
+//              switch(task_state)
+//              {
+//              case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
+//              case 1: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
+//              case 2: task_state=go_where(RxCamera[6],RxCamera[7],task_state); break;
+//              case 3: task_state=go_where(RxCamera[8],RxCamera[9],task_state); break;
+//              case 4: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
+//              default: break;
+//              }
+//           }
+//           if(black_ground==0)
+//           {
                switch(task_state)
                {
                case 0: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
@@ -86,7 +86,7 @@ void main()
                case 4: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
                default: break;
                }
-           }
+//           }
        }
 
        if(!boy_key_get(BOYKEY0))//当有按键0按下

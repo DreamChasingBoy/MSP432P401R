@@ -12,8 +12,8 @@ uint8_t go_where(uint16_t xpos,uint16_t ypos,uint8_t now_state)
 {
     X_target_position=xpos;
     Y_target_position=ypos;
-    boy_p_foot=sqrt(((float)(abs)(X_last_position-X_target_position))/((float)(abs)(Y_last_position-Y_target_position)));
-    boy_steerpid_init();
+//    boy_p_foot=sqrt(((float)(abs)(X_last_position-X_target_position))/((float)(abs)(Y_last_position-Y_target_position)));
+//    boy_steerpid_init();
     if(Y_flag_arrive&&X_flag_arrive)
     {
         Y_flag_arrive=X_flag_arrive=0;
