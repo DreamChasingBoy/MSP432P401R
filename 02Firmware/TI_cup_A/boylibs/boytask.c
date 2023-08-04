@@ -6,6 +6,7 @@
  */
 
 #include "boytask.h"
+#include "math.h"
 uint8_t task_state=0;
 uint8_t if_control_start=0;
 uint8_t go_where(uint16_t xpos,uint16_t ypos,uint8_t now_state)

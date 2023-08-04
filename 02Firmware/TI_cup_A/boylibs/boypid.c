@@ -98,14 +98,14 @@ void boy_steerpid_init()
     pidsteerY.door_integral=1;
     pidsteerY.max_integral=3;
     pidsteerY.min_integral=-3;
-    pidsteerY.output_max=3/boy_p_foot+0.4;
-    pidsteerY.output_min=-3/boy_p_foot-0.4;
+    pidsteerY.output_max=3/boy_p_foot;
+    pidsteerY.output_min=-3/boy_p_foot;
 
     pidsteerX.door_integral=1;
     pidsteerX.max_integral=3;
     pidsteerX.min_integral=-3;
-    pidsteerX.output_max=3*boy_p_foot+0.4;
-    pidsteerX.output_min=-3*boy_p_foot-0.4;
+    pidsteerX.output_max=3*boy_p_foot;
+    pidsteerX.output_min=-3*boy_p_foot;
 }
 /*************************************************
  * 函  数  名:pid_get_PID
@@ -121,19 +121,19 @@ void boy_steerpid_init()
  *************************************************/
 float pid_get_PID(PID_Datatype* pid, float target, float real)
 {
-    float max_door_integral=target*(1 + pid->door_integral);//door_integral的值大概在0.05左右
-    float min_door_integral=target*(1 - pid->door_integral);
-    uint8_t Ki_flag;
+//    float max_door_integral=target*(1 + pid->door_integral);//door_integral的值大概在0.05左右
+//    float min_door_integral=target*(1 - pid->door_integral);
+    uint8_t Ki_flag=1;
     float error = target - real; // 误差
     pid->integral += error; // 积分误差
-    if (real <= min_door_integral || real >= max_door_integral)//积分分离，在稳态附近打开积分器
-    {
-        Ki_flag=0;
-    }
-    else
-    {
-        Ki_flag=1;
-    }
+//    if (real <= min_door_integral || real >= max_door_integral)//积分分离，在稳态附近打开积分器
+//    {
+//        Ki_flag=0;
+//    }
+//    else
+//    {
+//        Ki_flag=1;
+//    }
     if (pid->integral > pid->max_integral) // 设置积分误差的上下限，防止过大或过小
     {
         pid->integral = pid->max_integral;

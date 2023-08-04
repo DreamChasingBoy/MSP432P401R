@@ -1,8 +1,22 @@
 
 #include "boylibs\headfile.h"
+
 uint8_t xmiddle[5],ymiddle[5];
 uint8_t kernel_task=0;
 uint8_t black_ground=0;
+void mySystemInit()//自定义一个SystemInit函数,函数体为空,这样错误即可消除
+{
+      #if (__FPU_USED == 1)
+    SCB->CPACR |= ((3UL << 10*2) |                 /* set CP10 Full Access */
+                   (3UL << 11*2)  );               /* set CP11 Full Access */
+  #endif
+
+#ifdef UNALIGNED_SUPPORT_DISABLE
+  SCB->CCR |= SCB_CCR_UNALIGN_TRP_Msk;
+#endif
+
+
+}
 void eeprom_clear()
 {
     EEPROM_write_Byte(0,0,0);
@@ -30,12 +44,15 @@ void main()
     char str_oled[100];
     boy_steerpid_init();
     system_init(0);
+    mySystemInit();
     set_DCO_48MH();
     OLED_init();
     OLED_clr();
     EEPROM_init();
-    X_last_position=X_target_position=eeprom_positionx_middle=EEPROM_read_Byte(0,0);
-    Y_last_position=Y_target_position=eeprom_positiony_middle=EEPROM_read_Byte(0,8);
+    X_target_position=eeprom_positionx_middle=EEPROM_read_Byte(0,0);
+    X_last_position=X_target_position+1;
+    Y_target_position=eeprom_positiony_middle=EEPROM_read_Byte(0,8);
+    Y_last_position==Y_target_position+1;
     eeprom_positionx_left_up=EEPROM_read_Byte(0,16);
     eeprom_positiony_left_up=EEPROM_read_Byte(0,24);
     eeprom_positionx_left_down=EEPROM_read_Byte(0,32);
@@ -50,7 +67,8 @@ void main()
     boy_encoder_init();
     boy_led_or_beep_init(BOYLEDALL);
     boy_key_init(BOYKEYALL);
-    TimerA_CCR0INT_init(TIMERA_A3,15);
+    UART_send_Byte(UART2, 0x01);
+    TimerA_CCR0INT_init(TIMERA_A3,20);
     initOK=1;
     while(1)
     {
@@ -62,21 +80,21 @@ void main()
        if(if_control_start==1)
        {
            X_flag_arrive=Y_flag_arrive=0;
-//           if_black();
-//           if(black_ground==1)
-//           {
-//              switch(task_state)
-//              {
-//              case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-//              case 1: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
-//              case 2: task_state=go_where(RxCamera[6],RxCamera[7],task_state); break;
-//              case 3: task_state=go_where(RxCamera[8],RxCamera[9],task_state); break;
-//              case 4: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-//              default: break;
-//              }
-//           }
-//           if(black_ground==0)
-//           {
+           if_black();
+           if(black_ground==1)
+           {
+              switch(task_state)
+              {
+              case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
+              case 1: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
+              case 2: task_state=go_where(RxCamera[6],RxCamera[7],task_state); break;
+              case 3: task_state=go_where(RxCamera[8],RxCamera[9],task_state); break;
+              case 4: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
+              default: break;
+              }
+           }
+           else if(black_ground==0)
+           {
                switch(task_state)
                {
                case 0: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
@@ -86,7 +104,7 @@ void main()
                case 4: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
                default: break;
                }
-//           }
+           }
        }
 
        if(!boy_key_get(BOYKEY0))//当有按键0按下
