@@ -2,6 +2,7 @@
 #include "boylibs\headfile.h"
 uint8_t xmiddle[5],ymiddle[5];
 uint8_t kernel_task=0;
+uint8_t black_ground=0;
 void eeprom_clear()
 {
     EEPROM_write_Byte(0,0,0);
@@ -14,6 +15,13 @@ void eeprom_clear()
     EEPROM_write_Byte(0,56,0);
     EEPROM_write_Byte(0,64,0);
     EEPROM_write_Byte(0,72,0);
+}
+void if_black()
+{
+    if(RxCamera[2]==0)
+        black_ground=0;
+    else
+        black_ground=1;
 }
 void main()
 {
@@ -28,8 +36,6 @@ void main()
     EEPROM_init();
     X_last_position=X_target_position=eeprom_positionx_middle=EEPROM_read_Byte(0,0);
     Y_last_position=Y_target_position=eeprom_positiony_middle=EEPROM_read_Byte(0,8);
-//    X_target_position=118;
-//    Y_target_position=10;
     eeprom_positionx_left_up=EEPROM_read_Byte(0,16);
     eeprom_positiony_left_up=EEPROM_read_Byte(0,24);
     eeprom_positionx_left_down=EEPROM_read_Byte(0,32);
@@ -41,17 +47,14 @@ void main()
     boy_steer_init_duty(4500,4500);
     UART_init(UART0,115200);
     UART_init(UART2,115200);
-//    sprintf(str,"youshangx=%d,youshangy=%d\r\n",eeprom_positionx_right_up,eeprom_positiony_right_up);
-//    UART_send_string(UART0,str);
-//    sprintf(str,"youxiax=%d,youxiay=%d\r\n",eeprom_positionx_right_down,eeprom_positiony_right_down);
-//    UART_send_string(UART0,str);
     boy_encoder_init();
     boy_led_or_beep_init(BOYLEDALL);
     boy_key_init(BOYKEYALL);
-    TimerA_CCR0INT_init(TIMERA_A3,10);
+    TimerA_CCR0INT_init(TIMERA_A3,20);
     initOK=1;
     while(1)
     {
+
        if(init_lock)
            BOYLED1_ON();
        else
@@ -59,19 +62,30 @@ void main()
        if(if_control_start==1)
        {
            X_flag_arrive=Y_flag_arrive=0;
-           switch(task_state)
+           if_black();
+           if(black_ground==0)
            {
-//           case 0: task_state=go_where(60,24,task_state,2); break;
-//          case 1: task_state=go_where(120,24,task_state,1); break;
-//          case 2: task_state=go_where(120,64,task_state,0); break;
-//          case 3: task_state=go_where(60,64,task_state,1); break;
-//          case 4: task_state=go_where(60,24,task_state,0); break;
-           case 0: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state,2); break;
-           case 1: task_state=go_where(eeprom_positionx_right_up,eeprom_positiony_right_up,task_state,1); break;
-           case 2: task_state=go_where(eeprom_positionx_right_down,eeprom_positiony_right_down,task_state,0); break;
-           case 3: task_state=go_where(eeprom_positionx_left_down,eeprom_positiony_left_down,task_state,1); break;
-           case 4: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state,0); break;
-           default: break;
+              switch(task_state)
+              {
+              case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
+              case 1: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
+              case 2: task_state=go_where(RxCamera[6],RxCamera[7],task_state); break;
+              case 3: task_state=go_where(RxCamera[8],RxCamera[9],task_state); break;
+              case 4: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
+              default: break;
+              }
+           }
+           else if(black_ground==1)
+           {
+               switch(task_state)
+               {
+               case 0: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
+               case 1: task_state=go_where(eeprom_positionx_right_up,eeprom_positiony_right_up,task_state); break;
+               case 2: task_state=go_where(eeprom_positionx_right_down,eeprom_positiony_right_down,task_state); break;
+               case 3: task_state=go_where(eeprom_positionx_left_down,eeprom_positiony_left_down,task_state); break;
+               case 4: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
+               default: break;
+               }
            }
        }
 
@@ -162,9 +176,6 @@ void main()
           {
               if(steer_pid_control==0) steer_pid_control=1;
               else steer_pid_control=0;
-//              boy_kill_integral_and_lasterror(&pidsteerX);boy_kill_integral_and_lasterror(&pidsteerY);
-//              X_target_position=118;
-//              Y_target_position=96;
           }
           while(!boy_key_get(BOYKEY3));
       }
