@@ -44,7 +44,6 @@ void main()
     char str_oled[100];
     boy_steerpid_init();
     system_init(0);
-    mySystemInit();
     set_DCO_48MH();
     OLED_init();
     OLED_clr();
@@ -61,18 +60,18 @@ void main()
     eeprom_positiony_right_down=EEPROM_read_Byte(0,56);
     eeprom_positionx_right_up=EEPROM_read_Byte(0,64);
     eeprom_positiony_right_up=EEPROM_read_Byte(0,72);
-    boy_steer_init_duty(4500,4500);
     UART_init(UART0,115200);
     UART_init(UART2,115200);
     boy_encoder_init();
     boy_led_or_beep_init(BOYLEDALL);
     boy_key_init(BOYKEYALL);
-    UART_send_Byte(UART2, 0x01);
-    TimerA_CCR0INT_init(TIMERA_A3,20);
+    boy_steer_init_duty(5000,4500);
+    delay_ms(1000);
+    EUSCI_A2->TXBUF=0x01;
+    TimerA_CCR0INT_init(TIMERA_A3,15);
     initOK=1;
     while(1)
     {
-
        if(init_lock)
            BOYLED1_ON();
        else
@@ -81,29 +80,31 @@ void main()
        {
            X_flag_arrive=Y_flag_arrive=0;
            if_black();
-           if(black_ground==1)
-           {
-              switch(task_state)
-              {
-              case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-              case 1: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
-              case 2: task_state=go_where(RxCamera[6],RxCamera[7],task_state); break;
-              case 3: task_state=go_where(RxCamera[8],RxCamera[9],task_state); break;
-              case 4: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-              default: break;
-              }
-           }
-           else if(black_ground==0)
+           if(black_ground==0)
            {
                switch(task_state)
-               {
-               case 0: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
-               case 1: task_state=go_where(eeprom_positionx_right_up,eeprom_positiony_right_up,task_state); break;
-               case 2: task_state=go_where(eeprom_positionx_right_down,eeprom_positiony_right_down,task_state); break;
-               case 3: task_state=go_where(eeprom_positionx_left_down,eeprom_positiony_left_down,task_state); break;
-               case 4: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
-               default: break;
-               }
+              {
+              case 0: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
+              case 1: task_state=go_where(eeprom_positionx_right_up,eeprom_positiony_right_up,task_state); break;
+              case 2: task_state=go_where(eeprom_positionx_right_down,eeprom_positiony_right_down,task_state); break;
+              case 3: task_state=go_where(eeprom_positionx_left_down,eeprom_positiony_left_down,task_state); break;
+              case 4: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
+              default: break;
+              }
+
+           }
+           else if(black_ground==1)
+           {
+               switch(task_state)
+             {
+
+             case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
+             case 1: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
+             case 2: task_state=go_where(RxCamera[6],RxCamera[7],task_state); break;
+             case 3: task_state=go_where(RxCamera[8],RxCamera[9],task_state); break;
+             case 4: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
+             default: break;
+             }
            }
        }
 
@@ -188,7 +189,7 @@ void main()
            while(!boy_key_get(BOYKEY2));
        }
        else if(!boy_key_get(BOYKEY3))//当有按键3按下,暂停
-      {
+       {
           delay_ms(10);
           if(!boy_key_get(BOYKEY3))
           {
@@ -196,6 +197,15 @@ void main()
               else steer_pid_control=0;
           }
           while(!boy_key_get(BOYKEY3));
-      }
+       }
+       else if(!boy_key_get(BOYKEY4))//当有按键3按下,暂停
+       {
+         delay_ms(10);
+         if(!boy_key_get(BOYKEY4))
+         {
+             EUSCI_A2->TXBUF=0x05;
+         }
+         while(!boy_key_get(BOYKEY4));
+       }
     }
 }

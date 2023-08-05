@@ -96,14 +96,15 @@ void boy_steerpid_init()
     pidsteerX.kd=
     pidsteerY.kd=0.1;
     pidsteerY.door_integral=1;
-    pidsteerY.max_integral=3;
-    pidsteerY.min_integral=-3;
+    pidsteerY.max_integral=5;
+    pidsteerY.min_integral=-5;
     pidsteerY.output_max=3/boy_p_foot;
     pidsteerY.output_min=-3/boy_p_foot;
 
+
     pidsteerX.door_integral=1;
-    pidsteerX.max_integral=3;
-    pidsteerX.min_integral=-3;
+    pidsteerX.max_integral=5;
+    pidsteerX.min_integral=-5;
     pidsteerX.output_max=3*boy_p_foot;
     pidsteerX.output_min=-3*boy_p_foot;
 }

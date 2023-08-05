@@ -28,7 +28,7 @@ void boy_camera_receive_data(uint8_t com_data)
     static uint8_t RxState1 = 0;//状态量
     static uint8_t RxFlag1 = 0;//旗帜
 
-    if(RxState1==0&&com_data==0x41)  //0x41帧头
+    if(RxState1==0&&com_data==0xfe)  //0xfe帧头
     {
         RxState1=1;
         RxBuffer1[RxCounter1++]=com_data;
@@ -37,7 +37,7 @@ void boy_camera_receive_data(uint8_t com_data)
     else if(RxState1==1)
     {
         RxBuffer1[RxCounter1++]=com_data;
-        if(RxCounter1>=BOYCAMERADATASIZE+2||com_data == 0x46)       //RxBuffer1接受满了,接收数据结束
+        if(RxCounter1>=BOYCAMERADATASIZE+2||com_data == 0xff)       //RxBuffer1接受满了,接收数据结束
         {
             RxState1=2;
             RxFlag1=1;

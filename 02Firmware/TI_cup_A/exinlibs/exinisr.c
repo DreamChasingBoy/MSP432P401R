@@ -315,6 +315,7 @@ void TA2_0_IRQHandler(void) {
     /*ÃÌº”≥Ã–Ú*/
 
 }
+float derta_x,derta_y;
 long int i = 0;
 void TA3_0_IRQHandler(void) {
     TIMER_A3->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG;
@@ -332,6 +333,8 @@ void TA3_0_IRQHandler(void) {
         Y_real_position=RxCamera[1];//≤‚
         if(steer_pid_control!=0)
         {
+            derta_x=abs((float)(X_real_position-(float)X_target_position));
+            derta_y=abs((float)(Y_real_position-(float)Y_target_position));
 //            if()
 //            boy_p_foot=sqrt(((float)(abs)(RxCamera[0]-X_target_position))/((float)(abs)(RxCamera[1]-Y_target_position)));
 //            boy_steerpid_init();
@@ -344,8 +347,17 @@ void TA3_0_IRQHandler(void) {
                 }
                 else
                 {
-                    boy_p_foot=sqrt(((float)(abs)(X_real_position-X_target_position))/((float)(abs)(Y_real_position-Y_target_position)));
-                    boy_steerpid_init();
+                    if(derta_y==0)
+                    {
+                        pidsteerX.output_max=3;
+                        pidsteerX.output_min=-3;
+                    }
+                    else
+                    {
+                        boy_p_foot=sqrt((derta_x)/(derta_y));
+                        pidsteerX.output_max=3*boy_p_foot;
+                        pidsteerX.output_min=-3*boy_p_foot;
+                    }
                     X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
                 }
             }
@@ -358,8 +370,17 @@ void TA3_0_IRQHandler(void) {
                 }
                 else
                 {
-                    boy_p_foot=sqrt(((float)(abs)(X_real_position-X_target_position))/((float)(abs)(Y_real_position-Y_target_position)));
-                    boy_steerpid_init();
+                    if(derta_x==0)
+                    {
+                        pidsteerY.output_max=3;
+                        pidsteerY.output_min=-3;
+                    }
+                    else
+                    {
+                        boy_p_foot=sqrt((derta_x)/(derta_y));
+                        pidsteerY.output_max=3/boy_p_foot;
+                        pidsteerY.output_min=-3/boy_p_foot;
+                    }
                     Y_real_duty-=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//À„
                 }
             }
