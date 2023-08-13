@@ -12,7 +12,7 @@
 #include"exinsystem.h"
 long int sysc=0;
 long int systim=0;
-
+uint8_t initOK=0;
 /***********************************/
 /* error
  *

@@ -181,6 +181,25 @@ void TimerA_CCRVAL_set(TIMERA_enum TIMER,TIMERA_CCR_enum TIMERA_CCR,uint16 val)
    }
 }
 /*************************************************
+ * 函  数  名:TimerA_CCRVAL_get
+ * 功       能:获取CCR寄存器的值
+ * 参       数:TIMER:可选择的TimerA模块，在exinTimerA.h文件中枚举
+ * 注意事项:无
+ *************************************************/
+uint16_t TimerA_CCRVAL_get(TIMERA_enum TIMER,TIMERA_CCR_enum TIMERA_CCR)
+{
+    uint16_t val;
+    switch(TIMER)
+   {
+       case(TIMERA_A0):val=TIMER_A0->CCR[TIMERA_CCR] ;break;
+       case(TIMERA_A1):val=TIMER_A1->CCR[TIMERA_CCR] ;break;
+       case(TIMERA_A2):val=TIMER_A2->CCR[TIMERA_CCR] ;break;
+       case(TIMERA_A3):val=TIMER_A3->CCR[TIMERA_CCR] ;break;
+       default:;
+   }
+   return val;
+}
+/*************************************************
  * 函  数  名:CCRn_MOD_sel
  * 功       能:将CCR配置为输出模式
  * 参       数:TIMER:可选择的TimerA模块，在exinTimerA.h文件中枚举

@@ -23,7 +23,7 @@ typedef struct {
     float output_max;
     float output_min;
 } PID_Datatype;
-extern PID_Datatype pidSpeed,pidPosition,pidangle;
+extern PID_Datatype pidSpeed,pidPosition,pidangle,pidsteer;
 extern uint8_t speed_pid_control;
 extern uint8_t position_pid_control;
 extern uint8_t angle_pid_control;
@@ -31,6 +31,6 @@ extern float pid_get_PID(PID_Datatype* pid, float target, float real);
 extern void boy_speedpid_init();
 extern void boy_positionpid_init();
 extern void boy_anglepid_init();
-
+extern void boy_steerpid_init();
 
 #endif /* BOYLIBS_BOYPID_H_ */

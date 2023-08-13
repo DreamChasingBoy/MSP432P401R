@@ -74,17 +74,16 @@ void PORT2_IRQHandler(void)
     else if(P2->IFG & BIT3)
     {
         IRQ_CLR |= BIT3;
-        encoder_B.dir=gpio_get(GPIO_PORT_P3,GPIO_PIN0);
-        if(encoder_B.dir == 1)
-            encoder_B.encoder--;
-        else
-            encoder_B.encoder++;
-
         /*添加程序*/
     }
     if(P2->IFG & BIT4)
     {
         IRQ_CLR |= BIT4;
+        encoder_B.dir=gpio_get(GPIO_PORT_P3,GPIO_PIN0);
+        if(encoder_B.dir == 1)
+            encoder_B.encoder--;
+        else
+            encoder_B.encoder++;
         /*添加程序*/
     }
     if(P2->IFG & BIT5)
@@ -309,27 +308,8 @@ void TA2_0_IRQHandler(void) {
     /*添加程序*/
 
 }
-char str[50];
 void TA3_0_IRQHandler(void) {
     TIMER_A3->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG;
-    boy_speed_and_position_get();
-    if(position_pid_control)
-    {
-        left_target_speed=pid_get_PID(&pidPosition, left_target_position, left_real_position);
-        right_target_speed=pid_get_PID(&pidPosition, right_target_position, right_real_position);
-    }
-//    if(angle_pid_control)
-//    {
-//        left_target_speed-=pid_get_PID(&pidangle, left_target_angle, yaw);
-//        right_target_speed+=pid_get_PID(&pidangle, right_target_angle, yaw);
-//    }
-    if(speed_pid_control)
-    {
-        left_real_speed+=pid_get_PID(&pidSpeed, left_target_speed, left_real_speed);
-        right_real_speed+=pid_get_PID(&pidSpeed, right_target_speed, right_real_speed);
-    }
-    boy_direction_and_speed_control((int)left_real_speed,(int)right_real_speed);
-    boy_encoder_clear();
 }
 
 void TA0_N_IRQHandler(void)

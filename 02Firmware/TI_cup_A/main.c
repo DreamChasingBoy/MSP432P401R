@@ -86,7 +86,7 @@ void main()
     boy_steer_init_duty(5000,4500);
     delay_ms(1000);
     EUSCI_A2->TXBUF=0x01;
-    TimerA_CCR0INT_init(TIMERA_A3,15);
+    TimerA_CCR0INT_init(TIMERA_A3,10);
     initOK=1;
     while(1)
     {
@@ -94,59 +94,7 @@ void main()
            BOYLED1_ON();
        else
            BOYLED1_OFF();
-       if(if_control_start==1)
-       {
-           X_flag_arrive=Y_flag_arrive=0;
-           if_black();
-           if(black_ground==0)
-           {
-               switch(task_state)
-              {
-              case 0: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
-              case 1: task_state=go_where(eeprom_positionx_right_up,eeprom_positiony_right_up,task_state); break;
-              case 2: task_state=go_where(eeprom_positionx_right_down,eeprom_positiony_right_down,task_state); break;
-              case 3: task_state=go_where(eeprom_positionx_left_down,eeprom_positiony_left_down,task_state); break;
-              case 4: task_state=go_where(eeprom_positionx_left_up,eeprom_positiony_left_up,task_state); break;
-              default: break;
-              }
-           }
-           else if(black_ground==1)
-           {
-             switch(task_state)
-             {
-             case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-             case 1: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
-             case 2: task_state=go_where(RxCamera[6],RxCamera[7],task_state); break;
-             case 3: task_state=go_where(RxCamera[8],RxCamera[9],task_state); break;
-             case 4: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-             default: break;
-             }
-           }
-           else if(black_ground==2)
-           {
-                   switch(task_state)
-                   {
-                   case 0: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-                   case 1: task_state=go_where(three_xy(RxCamera[2],RxCamera[4],1),three_xy(RxCamera[3],RxCamera[5],1),task_state); break;
-                   case 2: task_state=go_where(three_xy(RxCamera[2],RxCamera[4],2),three_xy(RxCamera[3],RxCamera[5],2),task_state); break;
 
-                   case 3: task_state=go_where(RxCamera[4],RxCamera[5],task_state); break;
-                   case 4: task_state=go_where(three_xy(RxCamera[4],RxCamera[6],1),three_xy(RxCamera[5],RxCamera[7],1),task_state); break;
-                   case 5: task_state=go_where(three_xy(RxCamera[4],RxCamera[6],2),three_xy(RxCamera[5],RxCamera[7],2),task_state); break;
-
-                   case 6: task_state=go_where(RxCamera[6],RxCamera[7]-1,task_state); break;
-                   case 7: task_state=go_where(three_xy(RxCamera[6],RxCamera[8],1),three_xy(RxCamera[7],RxCamera[9]-1,1),task_state); break;
-                   case 8: task_state=go_where(three_xy(RxCamera[6],RxCamera[8],2),three_xy(RxCamera[7],RxCamera[9]-1,2),task_state); break;
-
-                   case 9: task_state=go_where(RxCamera[8],RxCamera[9]-1,task_state); break;
-                   case 10: task_state=go_where(three_xy(RxCamera[8],RxCamera[2],1),three_xy(RxCamera[9],RxCamera[3]-1,1),task_state); break;
-                   case 11: task_state=go_where(three_xy(RxCamera[8],RxCamera[2],2),three_xy(RxCamera[9],RxCamera[3]-1,2),task_state); break;
-                   case 12: task_state=go_where(RxCamera[2],RxCamera[3],task_state); break;
-                   default: break;
-                  }
-
-           }
-       }
 
        if(!boy_key_get(BOYKEY0))//当有按键0按下
        {

@@ -19,7 +19,7 @@ extern "C"
 #define ms 1
 #define us 0
 #define SYSTIC_CONFIGURE SysTick_CTRL_CLKSOURCE_Msk |SysTick_CTRL_ENABLE_Msk|SysTick_CTRL_TICKINT_Msk
-
+extern uint8_t initOK;
 typedef enum{
     DCO_1_5M,
     DCO_3_0M,

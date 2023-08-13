@@ -74,17 +74,16 @@ void PORT2_IRQHandler(void)
     else if(P2->IFG & BIT3)
     {
         IRQ_CLR |= BIT3;
-        encoder_B.dir=gpio_get(GPIO_PORT_P3,GPIO_PIN0);
-        if(encoder_B.dir == 1)
-            encoder_B.encoder--;
-        else
-            encoder_B.encoder++;
-
         /*添加程序*/
     }
     if(P2->IFG & BIT4)
     {
         IRQ_CLR |= BIT4;
+        encoder_B.dir=gpio_get(GPIO_PORT_P3,GPIO_PIN0);
+        if(encoder_B.dir == 1)
+            encoder_B.encoder--;
+        else
+            encoder_B.encoder++;
         /*添加程序*/
     }
     if(P2->IFG & BIT5)

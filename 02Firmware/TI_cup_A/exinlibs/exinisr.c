@@ -319,7 +319,6 @@ float derta_x,derta_y;
 long int i = 0;
 void TA3_0_IRQHandler(void) {
     TIMER_A3->CCTL[0] &= ~TIMER_A_CCTLN_CCIFG;
-    char str_oled[50];
     if(init_lock)
     {
         if(eeprom_flag%2==0)
@@ -331,114 +330,56 @@ void TA3_0_IRQHandler(void) {
     {
         X_real_position=RxCamera[0];
         Y_real_position=RxCamera[1];//²â
+        X_target_position=RxCamera[2];
+        Y_target_position=RxCamera[3];
         if(steer_pid_control!=0)
         {
-            if(black_ground==0||black_ground==1)
-            {
-
-                derta_x=abs((float)(X_real_position-(float)X_target_position));
-                derta_y=abs((float)(Y_real_position-(float)Y_target_position));
-                if(abs(X_target_position-X_real_position)<=1)
-                {
-                    boy_kill_integral_and_lasterror(&pidsteerX);
-                    X_flag_arrive=1;
-                }
-                else
-                {
-                    if(derta_y==0)
-                    {
-                        pidsteerX.output_max=3;
-                        pidsteerX.output_min=-3;
-                    }
-                    else
-                    {
-                        boy_p_foot=sqrt((derta_x)/(derta_y));
-                        pidsteerX.output_max=3*boy_p_foot+0.3;
-                        pidsteerX.output_min=-3*boy_p_foot-0.3;
-                    }
-                    X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
-                }
-                if(abs(Y_target_position-Y_real_position)<=1)
-                {
-                    boy_kill_integral_and_lasterror(&pidsteerY);
-                    Y_flag_arrive=1;
-                }
-                else
-                {
-                    if(derta_x==0)
-                    {
-                        pidsteerY.output_max=3;
-                        pidsteerY.output_min=-3;
-                    }
-                    else
-                    {
-                        boy_p_foot=sqrt((derta_x)/(derta_y));
-                        pidsteerY.output_max=3/boy_p_foot+0.3;
-                        pidsteerY.output_min=-3/boy_p_foot-0.3;
-                    }
-                    Y_real_duty-=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
-                }
-            }
-            else if(black_ground==2)
-            {
-                pidsteerX.kp=
-                pidsteerY.kp=0.15;
-                pidsteerX.ki=
-                pidsteerY.ki=0.26;
-                pidsteerX.kd=
-                pidsteerY.kd=0.1;
-                pidsteerY.max_integral=3;
-                pidsteerY.min_integral=-3;
-
-                pidsteerX.max_integral=3;
-                pidsteerX.min_integral=-3;
-                derta_x=abs((float)(X_real_position-(float)X_target_position));
-                derta_y=abs((float)(Y_real_position-(float)Y_target_position));
-                if(abs(X_target_position-X_real_position)<=1)
-                {
-                    boy_kill_integral_and_lasterror(&pidsteerX);
-                    X_flag_arrive=1;
-                }
-                else
-                {
-                    if(derta_y==0)
-                    {
-                        pidsteerX.output_max=0.3;
-                        pidsteerX.output_min=-0.3;
-                    }
-                    else
-                    {
-                        boy_p_foot=sqrt((derta_x)/(derta_y));
-                        pidsteerX.output_max=2*boy_p_foot+0.3;
-                        pidsteerX.output_min=-2*boy_p_foot-0.3;
-                    }
-                    X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
-                }
-                if(abs(Y_target_position-Y_real_position)<=1)
-                {
-                    boy_kill_integral_and_lasterror(&pidsteerY);
-                    Y_flag_arrive=1;
-                }
-                else
-                {
-                    if(derta_x==0)
-                    {
-                        pidsteerY.output_max=0.3;
-                        pidsteerY.output_min=-0.3;
-                    }
-                    else
-                    {
-                        boy_p_foot=sqrt((derta_x)/(derta_y));
-                        pidsteerY.output_max=2/boy_p_foot+0.3;
-                        pidsteerY.output_min=-2/boy_p_foot-0.3;
-                    }
-                    Y_real_duty-=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
-                }
-
+//                derta_x=abs((float)(X_real_position-(float)X_target_position));
+//                derta_y=abs((float)(Y_real_position-(float)Y_target_position));
+//                if(abs(X_target_position-X_real_position)<=1)
+//                {
+//                    boy_kill_integral_and_lasterror(&pidsteerX);
+//                    X_flag_arrive=1;
+//                }
+//                else
+//                {
+//                    if(derta_y==0)
+//                    {
+//                        pidsteerX.output_max=3;
+//                        pidsteerX.output_min=-3;
+//                    }
+//                    else
+//                    {
+//                        boy_p_foot=sqrt((derta_x)/(derta_y));
+//                        pidsteerX.output_max=3*boy_p_foot+0.3;
+//                        pidsteerX.output_min=-3*boy_p_foot-0.3;
+//                    }
+                    X_real_duty+=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
+//                }
+//                if(abs(Y_target_position-Y_real_position)<=1)
+//                {
+//                    boy_kill_integral_and_lasterror(&pidsteerY);
+//                    Y_flag_arrive=1;
+//                }
+//                else
+//                {
+//                    if(derta_x==0)
+//                    {
+//                        pidsteerY.output_max=3;
+//                        pidsteerY.output_min=-3;
+//                    }
+//                    else
+//                    {
+//                        boy_p_foot=sqrt((derta_x)/(derta_y));
+//                        pidsteerY.output_max=3/boy_p_foot+0.3;
+//                        pidsteerY.output_min=-3/boy_p_foot-0.3;
+//                    }
+                    Y_real_duty+=(int)pid_get_PID(&pidsteerY,Y_target_position,Y_real_position);//Ëã
+//                }
             }
         }
         boy_steer_set_duty(4500+Y_real_duty,4500+X_real_duty);//¿Ø
-    }
+
 }
 
 void TA0_N_IRQHandler(void)

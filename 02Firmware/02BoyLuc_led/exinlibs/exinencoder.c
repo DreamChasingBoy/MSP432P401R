@@ -76,7 +76,7 @@ void encoder_interrupt_init(Encoder_Channel_enum CHI)
     switch(CHI)
            {
            case(ENCODER_CHA):gpio_interrupt_INIT(GPIO_PORT_P4,GPIO_PIN4,RISING);break;
-           case(ENCODER_CHB):gpio_interrupt_INIT(GPIO_PORT_P2,GPIO_PIN3,RISING);break;
+           case(ENCODER_CHB):gpio_interrupt_INIT(GPIO_PORT_P2,GPIO_PIN4,RISING);break;
            case(ENCODER_CHC):gpio_interrupt_INIT(GPIO_PORT_P6,GPIO_PIN6,RISING);break;
            case(ENCODER_CHD):gpio_interrupt_INIT(GPIO_PORT_P5,GPIO_PIN1,RISING);break;
            }

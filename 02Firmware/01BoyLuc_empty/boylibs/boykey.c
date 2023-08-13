@@ -31,7 +31,7 @@ void boy_key_init(uint8 key)
     }
     if(key & BOYKEY4)
     {
-        gpio_init(GPIO_PORT_P10,GPIO_PIN2,GPI,1);
+        gpio_init(GPIO_PORT_P10,GPIO_PIN1,GPI,1);
     }
 }
 /*************************************************

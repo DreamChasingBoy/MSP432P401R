@@ -5,10 +5,10 @@
  *      Author: BoyLuc追梦少年南南
  */
 /*************************************************
- * 函  数  名:boy_led_init
+ * 函  数  名:boy_led_or_beep_init
  * 功       能:初始化led或蜂鸣器
  * 参       数:led:要初始化的led或蜂鸣器
- * 注 意 事 项:boy_led_init(BOYKEYALL)//五个按键全部初始化
+ * 注 意 事 项:boy_led_or_beep_init(BOYLEDALL|BOYBEEP)//三个LED和一个蜂鸣器全部初始化
  *************************************************/
 #include "boyled.h"
 void boy_led_or_beep_init(uint8 led)

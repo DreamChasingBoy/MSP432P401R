@@ -356,7 +356,7 @@ void TA3_0_IRQHandler(void) {
                         pidsteerX.output_max=3*boy_p_foot+0.3;
                         pidsteerX.output_min=-3*boy_p_foot-0.3;
                     }
-                    X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
+                    X_real_duty+=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
                 }
                 if(abs(Y_target_position-Y_real_position)<=1)
                 {
@@ -412,7 +412,7 @@ void TA3_0_IRQHandler(void) {
                         pidsteerX.output_max=2*boy_p_foot+0.3;
                         pidsteerX.output_min=-2*boy_p_foot-0.3;
                     }
-                    X_real_duty-=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
+                    X_real_duty+=(int)pid_get_PID(&pidsteerX,X_target_position,X_real_position);
                 }
                 if(abs(Y_target_position-Y_real_position)<=1)
                 {

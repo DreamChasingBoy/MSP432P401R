@@ -6,10 +6,11 @@
  */
 
 #include "boypid.h"
-PID_Datatype pidSpeed,pidPosition,pidangle;
+PID_Datatype pidSpeed,pidPosition,pidangle,pidsteer;
 uint8_t speed_pid_control=1;//速度环开关，1为开启，0为关闭
 uint8_t position_pid_control=1;//位置环开关，1为开启，0为关闭
 uint8_t angle_pid_control=0;//角度环开关，1为开启，0为关闭
+uint8_t steer_pid_control=1;//舵机角度环
 /*************************************************
  * 函  数  名:boy_speedpid_init
  * 功      能:初始化速度环pid结构体
@@ -72,6 +73,27 @@ void boy_anglepid_init()
     pidangle.min_integral=-15;
     pidangle.output_max=30;
     pidangle.output_min=-30;
+}
+/*************************************************
+ * 函  数  名:boy_steerpid_init
+ * 功      能:初始化舵机角度环pid结构体
+ * 参      数:无
+ * 注 意 事 项:一定注意pid最大最小输出！
+ *           一定注意pid最大最小输出！
+ *           一定注意pid最大最小输出！
+ *           door_integral不知道干啥的直接填1！
+ *           调试时按需求修改kp、ki、kd等下列参数，output_max用于限制最大的速度增量。
+ *************************************************/
+void boy_steerpid_init()
+{
+    pidsteer.kp=1.8;
+    pidsteer.ki=0.1;
+    pidsteer.kd=0;
+    pidsteer.door_integral=0.15;
+    pidsteer.max_integral=24;
+    pidsteer.min_integral=-24;
+    pidsteer.output_max=36;
+    pidsteer.output_min=-36;
 }
 /*************************************************
  * 函  数  名:pid_get_PID
